@@ -45,10 +45,11 @@ const WhatMakesClient = ({
 			<Navbar
 				logo={navbar.logo}
 				buttonText={navbar.buttonText}
+				location="questionnare"
 			/>
-			<div className="text-4xl font-bold flex flex-row flex-wrap col-start-3 col-end-4 row-start-4 row-end-5">
-				<div>
-					<div className="">
+			<div className="text-4xl font-bold flex flex-row w-full flex-wrap col-start-3 col-end-4 row-start-4 row-end-5">
+				<div className="w-full">
+					<div className="flex justify-start items-center gap-3 w-full">
 						<p className="inline">
 							{
 								heading.a
@@ -58,12 +59,12 @@ const WhatMakesClient = ({
 						<Dots
 							space={6}
 							height={
-								10
+								14
 							}
 							weight={
-								10
+								14
 							}
-							style="inline-flex justify-start items-center"
+							style="inline-flex justify-center items-center mt-2"
 							colour=""
 						/>
 						<p className="inline">

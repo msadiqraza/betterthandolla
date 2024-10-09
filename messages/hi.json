@@ -55,10 +55,10 @@
 		},
 		"countdownTimer": {
 			"time": {
-				"days": 65,
-				"hours": 12,
-				"minutes": 3,
-				"seconds": 59
+				"days": "65",
+				"hours": "12",
+				"minutes": "3",
+				"seconds": "59"
 			}
 		},
 		"footer": "लॉन्च का समय",

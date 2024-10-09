@@ -5,9 +5,9 @@ import checkTwitterPost from "@/modules/api/post";
 import { findUser } from "@/modules/supabase/findUser";
 import { insertUser } from "@/modules/supabase/insertUser";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
 import { useAccount, useSignMessage } from "wagmi";
+import { useRouter } from "../../i18n/routing";
 import Loading from "./Loading";
 
 interface RewardProgramProps {
@@ -42,7 +42,6 @@ const RewardProgram = ({ posted, rewardsdata }: RewardProgramProps) => {
 	const [url, setUrl] = useState("");
 	const message = "Hello from BetterThanDollar";
 	const [err, setErr] = useState<string>();
-	const [signature, setSignature] = useState<string | null>(null);
 	const [isVerified, setIsVerified] = useState(false);
 
 	const router = useRouter();
@@ -116,12 +115,12 @@ const RewardProgram = ({ posted, rewardsdata }: RewardProgramProps) => {
 			try {
 				console.log("Inside userFound");
 
-				// const insert = insertUser(
-				// 	username || "",
-				// 	wallet,
-				// 	tweetId
-				// );
-				// console.log("Insert user", insert);
+				const insert = insertUser(
+					username || "",
+					wallet,
+					tweetId
+				);
+				console.log("Insert user", insert);
 
 				const checkFollow =
 					await checkTwitterFollow(
@@ -129,7 +128,9 @@ const RewardProgram = ({ posted, rewardsdata }: RewardProgramProps) => {
 					);
 
 				if (checkFollow === true) {
-					console.log("User is following")
+					console.log(
+						"User is following"
+					);
 
 					const checkPost =
 						await checkTwitterPost(
@@ -138,7 +139,7 @@ const RewardProgram = ({ posted, rewardsdata }: RewardProgramProps) => {
 
 					if (checkPost === true) {
 						setIsVerified(true);
-						setErr("")
+						setErr("");
 					} else if (
 						checkPost === false
 					) {
@@ -178,11 +179,12 @@ const RewardProgram = ({ posted, rewardsdata }: RewardProgramProps) => {
 	const { signMessage } = useSignMessage({
 		mutation: {
 			onSuccess(data: `0x${string}`) {
-				setSignature(data);
 				console.log(
 					"Signature received:",
 					data
 				);
+
+				router.push("/finished");
 			},
 			onError(error: Error) {
 				console.error(

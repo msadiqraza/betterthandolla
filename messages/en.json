@@ -4,6 +4,10 @@
 		"buttonText": "Connect Wallet"
 	},
 
+	"check":{
+		"title":"BetterThanDollar: Unlock the next evolution of price stability in DeFi"
+	},
+
 	"home": {
 		"heading": {
 			"a": "Something",
@@ -55,10 +59,10 @@
 		},
 		"countdownTimer": {
 			"time": {
-				"days": 65,
-				"hours": 12,
-				"minutes": 3,
-				"seconds": 59
+				"days": "65",
+				"hours": "12",
+				"minutes": "3",
+				"seconds": "59"
 			}
 		},
 		"footer": "Time to launch",

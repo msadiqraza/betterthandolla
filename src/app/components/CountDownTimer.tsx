@@ -4,15 +4,23 @@
 import React, { useState, useEffect } from "react";
 interface CountdownTimerProps {
 		time: {
-			days: number;
-			hours: number;
-			minutes: number;
-			seconds: number;
+			days: string;
+			hours: string;
+			minutes: string;
+			seconds: string;
 		};
 };
 	
 const CountdownTimer: React.FC<CountdownTimerProps> = ({ time }) => {
-	const [timeLeft, setTimeLeft] = useState(time);
+ const transformedTime = {
+		days: Number(time.days),
+		hours: Number(time.hours),
+		minutes: Number(time.minutes),
+		seconds: Number(time.seconds),
+ };
+
+
+	const [timeLeft, setTimeLeft] = useState(transformedTime);
 
 	useEffect(() => {
 		const timer = setInterval(() => {

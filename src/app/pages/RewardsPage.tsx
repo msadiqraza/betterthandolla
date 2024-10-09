@@ -39,10 +39,10 @@ interface BoostRewardsProps {
 	};
 	countdownTimer: {
 		time: {
-			days: number;
-			hours: number;
-			minutes: number;
-			seconds: number;
+			days: string;
+			hours: string;
+			minutes: string;
+			seconds: string;
 		};
 	};
 	footer: string;
@@ -67,7 +67,6 @@ const BoostRewardsPage: React.FC<RewardsData> = ({ rewardsData }) => {
 		if (posted === "true") setHasPosted(true);
 	}, []);
 
-
 	return (
 		<Layout>
 			<Navbar
@@ -75,6 +74,7 @@ const BoostRewardsPage: React.FC<RewardsData> = ({ rewardsData }) => {
 				buttonText={
 					rewardsData.navbar.buttonText
 				}
+				location="rewards"
 			/>
 
 			<h1 className="font-bold col-start-3 col-end-7 row-start-4 row-end-5 lg:col-end-4 text-3xl lg:text-4xl">

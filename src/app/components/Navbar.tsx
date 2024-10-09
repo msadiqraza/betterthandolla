@@ -3,21 +3,28 @@
 // components/Layout.tsx
 import Dots from "@/components/Dots";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
-import { useTranslation } from "react-i18next";
+import { useLocale } from "next-intl";
+import { useRouter } from "next/navigation";
+import { ChangeEvent, useTransition } from "react";
 
 interface NavbarProps {
 	logo: string;
 	buttonText: string;
+	location: string;
 }
 
-const Navbar = ({ logo, buttonText }: NavbarProps) => {
-	const { i18n } = useTranslation();
+const Navbar = ({ logo, buttonText, location }: NavbarProps) => {
+	const router = useRouter();
+	const [isPending, startTransition] = useTransition();
+	const localActive = useLocale();
 
-	const changeLanguage = (lng: string) => {
-		console.log("Request for lang change", lng);
-		i18n.changeLanguage(lng);
+	const onSelectChange = (e: ChangeEvent<HTMLSelectElement>) => {
+		const nextLocale = e.target.value;
+
+		startTransition(() => {
+			router.replace(`/${nextLocale}/${location}`); // Update locale
+		});
 	};
-	console.log(buttonText)
 
 	return (
 		<nav className="col-start-3 col-end-7 row-start-3 row-end-4">
@@ -38,12 +45,9 @@ const Navbar = ({ logo, buttonText }: NavbarProps) => {
 				<div className="flex items-center space-x-4">
 					<select
 						className="bg-transparent"
-						onChange={(e) =>
-							changeLanguage(
-								e
-									.target
-									.value
-							)
+						value={localActive}
+						onChange={
+							onSelectChange
 						}
 					>
 						<option value="en">
@@ -62,9 +66,7 @@ const Navbar = ({ logo, buttonText }: NavbarProps) => {
 							Russian
 						</option>
 					</select>
-					{/* <button className="bg-gradient-to-r from-pink-500 to-red-500 text-white px-4 py-2 rounded-full">
-						{buttonText}
-					</button> */}
+
 					<ConnectButton.Custom>
 						{({
 							account,
@@ -91,7 +93,7 @@ const Navbar = ({ logo, buttonText }: NavbarProps) => {
 								>
 									{connected
 										? `${account.displayName}` // Display the wallet address if connected
-										: "Connect Wallet"}
+										: buttonText}
 								</button>
 							);
 						}}

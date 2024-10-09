@@ -1,9 +1,7 @@
 import { CountUpTimer } from "@/components/CountUpTimer";
 import Layout from "@/components/Layout";
 import Navbar from "@/components/Navbar";
-import english from "@/data/english.json";
-import { GetStaticProps } from "next";
-import { useRouter } from "next/navigation";
+import { useRouter } from "../../i18n/routing";
 
 // Interface for the props
 interface HomeProps {
@@ -43,6 +41,7 @@ function Home({ data }: HomePageProps): JSX.Element {
 			<Navbar
 				logo={data.navbar.logo}
 				buttonText={data.navbar.buttonText}
+				location=""
 			/>
 
 			<main className="col-start-3 col-end-7 row-start-4 row-end-6 flex justify-start items-center flex-col text-center">
@@ -74,6 +73,5 @@ function Home({ data }: HomePageProps): JSX.Element {
 		</Layout>
 	);
 }
-
 
 export default Home;

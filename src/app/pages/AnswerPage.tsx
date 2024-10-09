@@ -4,7 +4,7 @@
 import Dots from "@/components/Dots";
 import Layout from "@/components/Layout";
 import Navbar from "@/components/Navbar";
-import { useRouter } from "next/navigation";
+import { useRouter } from "../../i18n/routing";
 import React from "react";
 
 // Define interfaces for the data structure
@@ -51,6 +51,7 @@ const PriceStabilityPage: React.FC<PriceStabilityProps> = ({
 			<Navbar
 				logo={navbar.logo}
 				buttonText={navbar.buttonText}
+				location="answer"
 			/>
 			<div className="col-start-3 col-end-7 row-start-3 row-end-7 text-center flex flex-col items-center justify-center">
 				<h1 className="text-5xl font-semibold">
