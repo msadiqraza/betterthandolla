@@ -1,0 +1,157 @@
+{
+	"navbar": {
+		"logo": "BetterThanDollar",
+		"buttonText": "Connect Wallet"
+	},
+
+	"home": {
+		"heading": {
+			"a": "Something",
+			"b": "BetterThanDollar",
+			"c": "is coming"
+		},
+		"subheading": {
+			"a": "Unlock the next evolution of price stability in DeFi",
+			"b": "betten than dollar, censorship-resistant and rewards"
+		},
+		"buttonText": "Let's go!",
+		"countUpTimer": {
+			"subheading": "People moving forward to next-gen price"
+		},
+		"navbar": {
+			"logo": "BetterThanDollar",
+			"buttonText": "Connect Wallet"
+		}
+	},
+
+	"rewards": {
+		"heading": "Three steps to boost your rewards",
+		"details": {
+			"a": "The faster you join, the higher the boost your rewards will get when starting January 20 '25.",
+			"b": "Simply complete the the three steps to the box →",
+			"c": "When the new solution • • • that's better than dollar launches, you will accumulate boosted rewards by holding and sending this new super-coin.",
+			"d": "Later, claim the rewards in the wallet you connect here."
+		},
+		"rewardProgram": {
+			"heading": "Join the BetterThanDollar reward program",
+			"follow": {
+				"text": "Follow us on X:",
+                "clientTwitterAcct":"SkyEcosystem",
+				"button": "Follow"
+			},
+			"post": {
+				"text": "Make a post on your X and share the word:",
+				"button": "Post"
+			},
+			"verify": {
+				"placeholder": "Verify the link to your shared tweet",
+				"button": "Verify"
+			},
+			"sign": {
+				"text": "Connect your wallet and sign",
+				"button": "Sign message"
+			},
+			"footer": "Sign the message to confirm eligibility. Your connected wallet will qualify to claim double BetterThanDollar rewards."
+		},
+		"countdownTimer": {
+			"time": {
+				"days": 65,
+				"hours": 12,
+				"minutes": 3,
+				"seconds": 59
+			}
+		},
+		"footer": "Time to launch",
+		"navbar": {
+			"logo": "BetterThanDollar",
+			"buttonText": "Connect Wallet"
+		}
+	},
+
+	"questionnare": {
+		"heading": {
+			"a": "What makes",
+			"b": "BetterThanDollar?"
+		},
+		"information": {
+			"a": "On blockchains, more than 99% of stablecoins are pegged to the US dollar, despite less than 10% of all users being from the USA, leaving more than 90% of users from all other countries in the world exposed to the wild swings in the US dollar to their native currencies.",
+			"b": "What do you believe, is the most important feature of a new super-stable for it to be better than the dollar? Is it that:",
+			"list": {
+				"a": "It offers BETTER PRICE STABILITY to your national currency than US$-reference tokens",
+				"b": "The better STABILITY IS SHARED AMONG ITS USERS so that everybody benefits, and not only one small group (one country) enjoys all the benefits",
+				"c": "It has CENSORSHIP-RESISTANCE in contrast to the US$-reference tokens",
+				"d": "It is a NEUTRAL BLOCKCHAIN NATIVE SOLUTION that does not simply refer to an old-fashioned fiat currency"
+			},
+			"c": "Choose which you find most important and post on X"
+		},
+		"options": [
+			"PRICE STABILITY",
+			"SHARED STABILITY",
+			"CENSORSHIP RESISTANCE",
+			"NEUTRAL"
+		],
+		"navbar": {
+			"logo": "BetterThanDollar",
+			"buttonText": "Connect Wallet"
+		}
+	},
+
+	"finished": {
+		"title": "BetterThanDollar",
+		"heading": "MIssion Complete!",
+		"subheading": "To us, you are already more valuable than the dollar, please come back and get triple rewards. Keep your eyes on @BetterThanDollar on X for launch details.",
+		"buttonText": "Got it"
+	},
+    
+	"answer": {
+		"version": {
+			"PRICE STABILITY": {
+				"heading": "YES",
+				"subheading": "Better price stability to your national currency is a very important function of a new super-stable.",
+				"details": {
+					"a": "The new",
+					"b": "is @BetterThanDollar when the price stability towards my national currency is  to that offered by the many USD-pegged tokens."
+				},
+				"buttonText": "Post",
+				"post": "MakerDAO is now Sky! Get ready to upgrade to $USDS and $SKY on 18 Sept.\nJust signed up for the Early Bird Bonus on http://Sky.Money.\nGet double rewards for the first month after launch if you're eligible\n@SkyEcosystem"
+			},
+			"SHARED STABILITY": {
+				"heading": "YES",
+				"subheading": "It is most fair when all benefit from the better stability.",
+				"details": {
+					"a": "The new",
+					"b": "is @BetterThanDollar when the stability is shared - so that all will benefit - not just the holders of one specific national currency."
+				},
+				"buttonText": "Post",
+				"post": "MakerDAO is now Sky! Get ready to upgrade to $USDS and $SKY on 18 Sept.\nJust signed up for the Early Bird Bonus on http://Sky.Money.\nGet double rewards for the first month after launch if you're eligible\n@SkyEcosystem"
+
+			},
+			"CENSORSHIP RESISTANCE": {
+				"heading": "YES",
+				"subheading": "Being censcorship-resistance is an increasingly important function of a new super-stable.",
+				"details": {
+					"a": "The new",
+					"b": "is @BetterThanDollar when it is resistant towards the capricious whims of governments and their ability to confiscate my assets remotely without legal basis."
+				},
+				"buttonText": "Post",
+				"post": "MakerDAO is now Sky! Get ready to upgrade to $USDS and $SKY on 18 Sept.\nJust signed up for the Early Bird Bonus on http://Sky.Money.\nGet double rewards for the first month after launch if you're eligible\n@SkyEcosystem"
+
+			},
+			"NEUTRAL": {
+				"heading": "YES",
+				"subheading": "To be neutral is an important function of a new super-stable.",
+				"details": {
+					"a": "The new",
+					"b": "@BetterThanDollar is not learning on a national currency related to the politics of that nation, but simply ensured the best price stability based on modern technology."
+				},
+				"buttonText": "Post",
+				"post": "MakerDAO is now Sky! Get ready to upgrade to $USDS and $SKY on 18 Sept.\nJust signed up for the Early Bird Bonus on http://Sky.Money.\nGet double rewards for the first month after launch if you're eligible\n@SkyEcosystem"
+			}
+		},
+
+		"navbar": {
+			"logo": "BetterThanDollar",
+			"buttonText": "Connect Wallet"
+		}
+	}
+}

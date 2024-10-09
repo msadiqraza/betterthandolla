@@ -1,0 +1,150 @@
+{
+	"navbar": {
+		"logo": "BetterThanDollar",
+		"buttonText": "Conectar Carteira"
+	},
+
+	"home": {
+		"heading": {
+			"a": "Algo",
+			"b": "BetterThanDollar",
+			"c": "está chegando"
+		},
+		"subheading": {
+			"a": "Desbloqueie a próxima evolução da estabilidade de preços em DeFi",
+			"b": "melhor que o dólar, resistente à censura e com recompensas"
+		},
+		"buttonText": "Vamos lá!",
+		"countUpTimer": {
+			"subheading": "Pessoas avançando para a próxima geração de preços"
+		},
+		"navbar": {
+			"logo": "BetterThanDollar",
+			"buttonText": "Conectar Carteira"
+		}
+	},
+
+	"rewards": {
+		"heading": "Três passos para aumentar suas recompensas",
+		"details": {
+			"a": "Quanto mais rápido você se juntar, maior será o aumento de suas recompensas a partir de 20 de janeiro de 2025.",
+			"b": "Basta concluir os três passos para o progresso →",
+			"c": "Quando a nova solução • • • que é melhor que o dólar for lançada, você acumulará recompensas aumentadas mantendo e enviando esta nova super-moeda.",
+			"d": "Mais tarde, reivindique as recompensas na carteira que você conectar aqui."
+		},
+		"rewardProgram": {
+			"heading": "Junte-se ao programa de recompensas BetterThanDollar",
+			"follow": {
+				"text": "Siga-nos no X:",
+				"clientTwitterAcct": "SkyEcosystem",
+				"button": "Seguir"
+			},
+			"post": {
+				"text": "Faça uma postagem no seu X e compartilhe a novidade:",
+				"button": "Postar"
+			},
+			"verify": {
+				"placeholder": "Verifique o link do seu tweet compartilhado",
+				"button": "Verificar"
+			},
+			"sign": {
+				"text": "Conecte sua carteira e assine",
+				"button": "Assinar mensagem"
+			},
+			"footer": "Assine a mensagem para confirmar a elegibilidade. Sua carteira conectada se qualificará para reivindicar recompensas em dobro do BetterThanDollar."
+		},
+		"countdownTimer": {
+			"time": {
+				"days": 65,
+				"hours": 12,
+				"minutes": 3,
+				"seconds": 59
+			}
+		},
+		"footer": "Tempo para lançamento",
+		"navbar": {
+			"logo": "BetterThanDollar",
+			"buttonText": "Conectar Carteira"
+		}
+	},
+
+	"questionnare": {
+		"heading": {
+			"a": "O que torna",
+			"b": "BetterThanDollar?"
+		},
+		"information": {
+			"a": "Nas blockchains, mais de 99% das stablecoins estão atreladas ao dólar americano, apesar de menos de 10% de todos os usuários serem dos EUA, deixando mais de 90% dos usuários de outros países expostos às variações selvagens do dólar em relação às suas moedas nativas.",
+			"b": "O que você acredita ser a característica mais importante de uma nova super-stable para ser melhor que o dólar? É que:",
+			"list": {
+				"a": "Ela oferece MELHOR ESTABILIDADE DE PREÇO para sua moeda nacional do que tokens referenciados ao US$",
+				"b": "A melhor ESTABILIDADE É COMPARTILHADA ENTRE SEUS USUÁRIOS, para que todos se beneficiem, e não apenas um pequeno grupo (um país)",
+				"c": "Ela possui RESISTÊNCIA À CENSURA, em contraste com tokens referenciados ao US$",
+				"d": "É uma SOLUÇÃO NEUTRA NATIVA DE BLOCKCHAIN que não se refere simplesmente a uma moeda fiduciária antiquada"
+			},
+			"c": "Escolha o que você considera mais importante e publique no X"
+		},
+		"options": [
+			"ESTABILIDADE DE PREÇO",
+			"ESTABILIDADE COMPARTILHADA",
+			"RESISTÊNCIA À CENSURA",
+			"NEUTRALIDADE"
+		],
+		"navbar": {
+			"logo": "BetterThanDollar",
+			"buttonText": "Conectar Carteira"
+		}
+	},
+
+	"finished": {
+		"title": "BetterThanDollar",
+		"heading": "Missão Completa!",
+		"subheading": "Para nós, você já é mais valioso que o dólar. Por favor, volte e ganhe recompensas triplas. Fique de olho em @BetterThanDollar no X para detalhes do lançamento.",
+		"buttonText": "Entendi"
+	},
+
+	"answer": {
+		"version": {
+			"ESTABILIDADE DE PREÇO": {
+				"heading": "SIM",
+				"subheading": "Melhor estabilidade de preço para sua moeda nacional é uma função muito importante de uma nova super-stable.",
+				"details": {
+					"a": "O novo",
+					"b": "é @BetterThanDollar quando a estabilidade de preço em relação à minha moeda nacional é superior à oferecida por muitos tokens atrelados ao USD."
+				},
+				"buttonText": "Postar"
+			},
+			"ESTABILIDADE COMPARTILHADA": {
+				"heading": "SIM",
+				"subheading": "É mais justo quando todos se beneficiam da melhor estabilidade.",
+				"details": {
+					"a": "O novo",
+					"b": "é @BetterThanDollar quando a estabilidade é compartilhada, para que todos se beneficiem - não apenas os detentores de uma moeda nacional específica."
+				},
+				"buttonText": "Postar"
+			},
+			"RESISTÊNCIA À CENSURA": {
+				"heading": "SIM",
+				"subheading": "Ser resistente à censura é uma função cada vez mais importante de uma nova super-stable.",
+				"details": {
+					"a": "O novo",
+					"b": "é @BetterThanDollar quando resiste aos caprichos arbitrários de governos e sua capacidade de confiscar meus ativos remotamente sem base legal."
+				},
+				"buttonText": "Postar"
+			},
+			"NEUTRALIDADE": {
+				"heading": "SIM",
+				"subheading": "Ser neutro é uma função importante de uma nova super-stable.",
+				"details": {
+					"a": "O novo",
+					"b": "@BetterThanDollar não está vinculado a uma moeda nacional relacionada à política desse país, mas apenas garante a melhor estabilidade de preço baseada em tecnologia moderna."
+				},
+				"buttonText": "Postar"
+			}
+		},
+		"navbar": {
+			"logo": "BetterThanDollar",
+			"buttonText": "Conectar Carteira"
+		}
+	}
+}
