@@ -1,21 +1,29 @@
 "use client";
 
 import { countUsers } from "@/modules/supabase/countUsers";
-// pages/index.tsx
 import React, { useEffect, useState } from "react";
 
-interface CountUpTimerProps{
+interface CountUpTimerProps {
 	subheading: string;
 }
+
 const CountUpTimer = ({ subheading }: CountUpTimerProps) => {
 	const [count, setCount] = useState(0);
 
 	useEffect(() => {
-		const totalUsers = countUsers()
-		console.log("countUsers", totalUsers)
-		if (!totalUsers) {
-			setCount(10)
-		}
+		// Fetch the total number of users
+		const fetchUserCount = async () => {
+			const totalUsers = await countUsers(); // Await the result from countUsers
+			console.log("Total users:", totalUsers);
+
+			if (totalUsers >= 0) {
+				setCount(totalUsers); // Set the user count if valid
+			} else {
+				setCount(10); // Fallback count in case of an error
+			}
+		};
+
+		fetchUserCount(); // Call the async function inside useEffect
 	}, []);
 
 	return (
@@ -36,9 +44,7 @@ const CountUpTimer = ({ subheading }: CountUpTimerProps) => {
 						</div>
 					))}
 			</div>
-			<p className="mt-4 text-center">
-				{subheading}
-			</p>
+			<p className="mt-4 text-center">{subheading}</p>
 		</div>
 	);
 };

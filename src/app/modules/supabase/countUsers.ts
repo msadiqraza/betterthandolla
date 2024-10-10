@@ -1,34 +1,27 @@
 import { supabase } from "@/modules/supabase/supabaseClient";
 
-// Function to check if a user exists by username or wallet
+// Function to count the total number of users
 const countUsers = async (): Promise<number> => {
 	try {
-		// Query the users table to find a user by username or wallet
-		const { data, error } = await supabase
+		// Query the users table to count all rows
+		const { count, error } = await supabase
 			.from("users")
-			.select("*", { count: "exact", head: true });
+			.select("*", { count: "exact", head: true }); // This fetches only the count, not the data itself
 
 		if (error) {
 			console.error(
-				"Error fetching user:",
+				"Error fetching user count:",
 				error.message
 			);
-			return -1;
-		}
+			return -1; // Return -1 on error
+        }
+        
+        console.log("count", count)
 
-		// Check if any users were found
-		if (data.length > 0) {
-			console.log("User found:", data);
-			return 1; // Return the first matched user
-		} else {
-			console.log(
-				"No user found with the provided username or wallet."
-			);
-			return 0; // No user found
-		}
+		return count || 0; // Return the count, or 0 if no users exist
 	} catch (error) {
-		console.log("Error during user search:", error);
-		return -2;
+		console.log("Error during user count:", error);
+		return -2; // Return -2 on unexpected error
 	}
 };
 
