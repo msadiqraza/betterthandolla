@@ -32,9 +32,10 @@
 		"heading": "Three steps to boost your rewards",
 		"details": {
 			"a": "The faster you join, the higher the boost your rewards will get when starting January 20 '25.",
-			"b": "Simply complete the the three steps to the box →",
-			"c": "When the new solution • • • that's better than dollar launches, you will accumulate boosted rewards by holding and sending this new super-coin.",
-			"d": "Later, claim the rewards in the wallet you connect here."
+			"b": "Simply complete the the three steps to the box ",
+			"c": "When the new solution ",
+			"d": " better than dollar launches, you will accumulate boosted rewards by holding and sending this new super-coin.",
+			"e": "Later, claim the rewards in the wallet you connect here."
 		},
 		"rewardProgram": {
 			"heading": "Join the BetterThanDollar reward program",
@@ -102,8 +103,8 @@
 
 	"finished": {
 		"title": "BetterThanDollar",
-		"heading": "MIssion Complete!",
-		"subheading": "To us, you are already more valuable than the dollar, please come back and get triple rewards. Keep your eyes on @BetterThanDollar on X for launch details.",
+		"heading": "Mission Complete!",
+		"subheading": "To us, you are already more valuable than the dollar, please come back and get triple rewards. \nKeep your eyes on @BetterThanDollar\n on X for launch details.",
 		"buttonText": "Got it"
 	},
 

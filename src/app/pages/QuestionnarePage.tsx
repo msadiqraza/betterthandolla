@@ -47,15 +47,10 @@ const WhatMakesClient = ({
 				buttonText={navbar.buttonText}
 				location="questionnare"
 			/>
-			<div className="text-4xl font-bold flex flex-row w-full flex-wrap col-start-3 col-end-4 row-start-4 row-end-5">
+			<div className="text-4xl font-bold flex flex-row w-full flex-wrap col-start-3 col-end-7 row-start-4 row-end-5 lg:col-end-4">
 				<div className="w-full">
 					<div className="flex justify-start items-center gap-3 w-full">
-						<p className="inline">
-							{
-								heading.a
-							}
-							{"  "}
-						</p>
+						{heading.a}
 						<Dots
 							space={6}
 							height={
@@ -67,11 +62,7 @@ const WhatMakesClient = ({
 							style="inline-flex justify-center items-center mt-2"
 							colour=""
 						/>
-						<p className="inline">
-							{
-								heading.b
-							}
-						</p>
+						{heading.b}
 					</div>
 				</div>
 			</div>

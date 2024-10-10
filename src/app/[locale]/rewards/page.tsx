@@ -10,6 +10,7 @@ interface RewardsData {
 		b: string;
 		c: string;
 		d: string;
+		e:string
 	};
 	rewardProgram: {
 		heading: string;
@@ -58,6 +59,7 @@ export default function RewardsPage() {
 			b: t("rewards.details.b"),
 			c: t("rewards.details.c"),
 			d: t("rewards.details.d"),
+			e: t("rewards.details.e"),
 		},
 		rewardProgram: {
 			heading: t("rewards.rewardProgram.heading"),

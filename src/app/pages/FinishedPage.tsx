@@ -1,5 +1,8 @@
+"use client";
+
 import Dots from "@/components/Dots";
 import Layout from "@/components/Layout";
+import { useRouter } from "../../i18n/routing";
 
 // Interface for the props
 interface MissionCompleteProps {
@@ -14,6 +17,11 @@ interface MissionCompletePageProps {
 }
 
 const MissionCompletePage = ({ data }: MissionCompletePageProps) => {
+	const router = useRouter();
+
+	const handleButton = () => {
+		router.push("/");
+	};
 	return (
 		<Layout>
 			<div className="col-start-3 row-start-4 row-end-7 col-end-7 flex flex-col items-center justify-start">
@@ -22,13 +30,13 @@ const MissionCompletePage = ({ data }: MissionCompletePageProps) => {
 						<div>
 							<Dots
 								space={
-									2
+									28
 								}
 								weight={
-									4
+									13
 								}
 								height={
-									4
+									13
 								}
 								style="w-full min-h-[20px] justify-start gap-14"
 								colour="bg-white"
@@ -46,9 +54,34 @@ const MissionCompletePage = ({ data }: MissionCompletePageProps) => {
 						{data.heading}
 					</h2>
 					<p className="mb-4">
-						{data.subheading}
+						{data.subheading
+							.split(
+								"\n"
+							)
+							.map(
+								(
+									line,
+									index
+								) => (
+									<span
+										key={
+											index
+										}
+									>
+										{
+											line
+										}
+										<br />
+									</span>
+								)
+							)}
 					</p>
-					<button className="bg-gradient-to-r from-pink-500 to-red-500 text-white px-9 py-2 rounded-xl">
+					<button
+						onClick={
+							handleButton
+						}
+						className="bg-gradient-to-r from-pink-500 to-red-500 text-white px-9 py-2 rounded-xl"
+					>
 						{data.buttonText}
 					</button>
 				</div>

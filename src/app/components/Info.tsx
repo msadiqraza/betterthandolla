@@ -16,10 +16,10 @@ interface InformationProps {
 }
 export default function Information({info}:InformationProps): JSX.Element {
 	return (
-		<div className="col-start-3 col-end-4 row-start-5 row-end-7 text-md font-semibold">
-			<p className="mb-3">{info.a}</p>
-			<p className="mb-3">{info.b}</p>
-			<ul className="list-[upper-alpha] pl-6 mb-3">
+		<div className="col-start-3 col-end-7 lg:col-end-4 row-start-5 row-end-6 lg:row-end-7 text-sm">
+			<p className="mb-2">{info.a}</p>
+			<p className="mb-2">{info.b}</p>
+			<ul className="list-[upper-alpha] pl-6 mb-2">
 				<li>{info.list.a}</li>
 				<li>{info.list.b}</li>
 				<li>{info.list.c}</li>

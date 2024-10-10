@@ -1,5 +1,6 @@
 "use client";
 
+import { countUsers } from "@/modules/supabase/countUsers";
 // pages/index.tsx
 import React, { useEffect, useState } from "react";
 
@@ -10,6 +11,10 @@ const CountUpTimer = ({ subheading }: CountUpTimerProps) => {
 	const [count, setCount] = useState(0);
 
 	useEffect(() => {
+		const totalUsers = countUsers()
+		
+		console.log("countUsers", totalUsers)
+
 		const timer = setInterval(() => {
 			setCount((prevCount) => prevCount + 1);
 		}, 100); // Increase every 100ms for a faster effect

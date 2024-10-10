@@ -56,7 +56,7 @@ function Home({ data }: HomePageProps): JSX.Element {
 				</div>
 				<button
 					onClick={handleRoute}
-					className="bg-gradient-to-r from-pink-500 to-red-500 text-white px-6 py-2 rounded-full hover:-mt-1 hover:h-[46px] hover:w-[128px]"
+					className="bg-gradient-to-r from-pink-500 to-red-500 text-white px-6 py-2 rounded-lg hover:-mt-1 hover:h-[46px] hover:w-[128px]"
 				>
 					{data.buttonText}
 				</button>

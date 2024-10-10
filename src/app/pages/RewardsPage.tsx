@@ -2,10 +2,11 @@
 "use client";
 
 import CountdownTimer from "@/components/CountDownTimer";
+import Dots from "@/components/Dots";
 import Layout from "@/components/Layout";
 import Navbar from "@/components/Navbar";
 import RewardProgram from "@/components/RewardsProgram";
-import { useRouter } from "next/navigation";
+import { ArrowForward } from "@mui/icons-material";
 import React, { useEffect, useState } from "react";
 
 interface BoostRewardsProps {
@@ -15,6 +16,7 @@ interface BoostRewardsProps {
 		b: string;
 		c: string;
 		d: string;
+		e: string;
 	};
 	rewardProgram: {
 		heading: string;
@@ -87,16 +89,24 @@ const BoostRewardsPage: React.FC<RewardsData> = ({ rewardsData }) => {
 				</p>
 				<p className="mb-2">
 					{rewardsData.details.b}
+					<ArrowForward />
 				</p>
-				<p className="mb-2">
+				<div className="mb-2">
 					{rewardsData.details.c}
-				</p>
-				<p className="">
+					<Dots
+						space={5}
+						height={10}
+						weight={10}
+						style="justify-center items-center"
+					/>
 					{rewardsData.details.d}
+				</div>
+				<p className="">
+					{rewardsData.details.e}
 				</p>
 			</div>
 
-			<div className="-mt-[100px] col-start-3 col-end-7 row-start-6 row-end-7 lg:col-start-6 lg:row-start-5 lg:row-end-7">
+			<div className="-mt-[80px] lg:mt-0 col-start-3 col-end-7 row-start-6 row-end-7 lg:col-start-6 lg:row-start-5 lg:row-end-7">
 				<RewardProgram
 					posted={hasPosted}
 					rewardsdata={
@@ -105,7 +115,7 @@ const BoostRewardsPage: React.FC<RewardsData> = ({ rewardsData }) => {
 				/>
 			</div>
 
-			<div className="mt-[140px] mb-10 row-start-7 row-end-8 col-start-3 col-end-7 lg:mt-0 lg:row-start-6 lg:row-end-8 flex justify-center items-center flex-col">
+			<div className="mt-[300px] mb-10 row-start-7 row-end-8 col-start-3 col-end-7 lg:mt-0 lg:row-start-6 lg:row-end-8 flex justify-end items-center flex-col">
 				<CountdownTimer
 					time={
 						rewardsData

@@ -4,8 +4,8 @@
 import Dots from "@/components/Dots";
 import Layout from "@/components/Layout";
 import Navbar from "@/components/Navbar";
-import { useRouter } from "../../i18n/routing";
 import React from "react";
+import { useRouter } from "../../i18n/routing";
 
 // Define interfaces for the data structure
 interface PriceStabilityData {
@@ -61,27 +61,29 @@ const PriceStabilityPage: React.FC<PriceStabilityProps> = ({
 					{data.subheading}
 				</p>
 
-				<div className="mb-8 max-w-[60vw]">
-					<p className="inline">
+				<div className="mb-8 max-w-[500px]">
+					<div className="inline">
 						{data.details.a}
-					</p>{" "}
-					<span>
-						<Dots
-							space={10}
-							height={7}
-							weight={7}
-							style="items-center justify-center"
-							colour=""
-						/>
-					</span>{" "}
-					<p className="inline">
+							<Dots
+								space={
+									10
+								}
+								height={
+									9
+								}
+								weight={
+									9
+								}
+								style="items-center justify-center"
+								colour=""
+							/>
 						{data.details.b}
-					</p>
+					</div>
 				</div>
 
 				<button
 					onClick={handlePost}
-					className="bg-gradient-to-r from-pink-500 to-red-500 text-white text-2xl font-semibold px-10 py-3 rounded-full"
+					className="bg-gradient-to-r from-pink-500 to-red-500 text-white text-2xl font-semibold px-6 py-2 rounded-lg"
 				>
 					{data.buttonText}
 				</button>

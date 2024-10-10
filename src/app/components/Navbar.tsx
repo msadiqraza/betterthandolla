@@ -2,10 +2,13 @@
 
 // components/Layout.tsx
 import Dots from "@/components/Dots";
+import LanguageIcon from "@mui/icons-material/Language";
+import { MenuItem, Select, SelectChangeEvent, InputBase } from "@mui/material";
+import { styled } from "@mui/system";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { useLocale } from "next-intl";
 import { useRouter } from "next/navigation";
-import { ChangeEvent, useTransition } from "react";
+import { ReactNode, useTransition } from "react";
 
 interface NavbarProps {
 	logo: string;
@@ -18,8 +21,25 @@ const Navbar = ({ logo, buttonText, location }: NavbarProps) => {
 	const [isPending, startTransition] = useTransition();
 	const localActive = useLocale();
 
-	const onSelectChange = (e: ChangeEvent<HTMLSelectElement>) => {
-		const nextLocale = e.target.value;
+	// Customizing the InputBase to remove the border and control styling
+	const CustomSelect = styled(Select)(({ theme }) => ({
+		".MuiSelect-icon": {
+			color: "red", // Change icon color to red
+			paddingLeft: "2px", // Add space between value and icon
+		},
+		"& .MuiOutlinedInput-notchedOutline": {
+			border: "none", // Remove border
+		},
+		"&:hover .MuiOutlinedInput-notchedOutline": {
+			border: "none", // Remove hover border (if applicable)
+		},
+		"&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+			border: "none", // Remove focused border (if applicable)
+		},
+	}));
+
+	const onSelectChange = (event: SelectChangeEvent<unknown>, child: ReactNode) => {
+		const nextLocale = event.target.value;
 
 		startTransition(() => {
 			router.replace(`/${nextLocale}/${location}`); // Update locale
@@ -31,41 +51,46 @@ const Navbar = ({ logo, buttonText, location }: NavbarProps) => {
 			<div className="w-full  flex flex-row justify-between">
 				<div className="flex flex-col">
 					<Dots
-						space={26}
+						space={25}
 						height={10}
 						weight={10}
 						style=""
 						colour=""
 					/>
-					<span className="font-bold text-xl">
+					<span className="text-lg">
 						{logo}
 					</span>
 				</div>
 
 				<div className="flex items-center space-x-4">
-					<select
-						className="bg-transparent"
+					<CustomSelect
 						value={localActive}
 						onChange={
 							onSelectChange
 						}
+						IconComponent={
+							LanguageIcon
+						} // Use LanguageIcon from MUI
+						input={
+							<InputBase />
+						}
 					>
-						<option value="en">
+						<MenuItem value="en">
 							English
-						</option>
-						<option value="pt">
+						</MenuItem>
+						<MenuItem value="pt">
 							Portuguese
-						</option>
-						<option value="zh">
+						</MenuItem>
+						<MenuItem value="zh">
 							Mandarin
-						</option>
-						<option value="hi">
+						</MenuItem>
+						<MenuItem value="hi">
 							Hindi
-						</option>
-						<option value="ru">
+						</MenuItem>
+						<MenuItem value="ru">
 							Russian
-						</option>
-					</select>
+						</MenuItem>
+					</CustomSelect>
 
 					<ConnectButton.Custom>
 						{({
@@ -88,7 +113,7 @@ const Navbar = ({ logo, buttonText, location }: NavbarProps) => {
 										background: "linear-gradient(to right, #ec4899, #ef4444)",
 										color: "#fff",
 										padding: "10px 20px",
-										borderRadius: "999px",
+										borderRadius: "10px",
 									}}
 								>
 									{connected

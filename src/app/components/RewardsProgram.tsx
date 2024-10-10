@@ -196,17 +196,17 @@ const RewardProgram = ({ posted, rewardsdata }: RewardProgramProps) => {
 	});
 
 	return (
-		<div className="bg-gradient-to-tr from-[rgb(92,33,65)] to-[rgb(50,42,57)] text-white rounded-lg p-4 mx-auto">
-			<h2 className="text-lg font-bold mb-4">
+		<div className="bg-gradient-to-tr from-[rgb(92,33,65)] to-[rgb(50,42,57)] text-white text-md rounded-lg p-4 mx-auto">
+			<h2 className="text-md font-bold mb-4">
 				{rewardsdata.heading}
 			</h2>
 
 			{/* Follow */}
-			<div className="flex items-center space-x-2 mb-3">
-				<span className="w-8 h-8 flex items-center justify-center bg-white text-purple-900 rounded-lg font-bold">
+			<div className="flex items-center space-x-2 mb-2">
+				<span className="w-7 h-7 flex items-center justify-center bg-white text-purple-900 rounded-lg font-bold">
 					1
 				</span>
-				<span>{rewardsdata.follow.text}</span>
+				<span className="text-md">{rewardsdata.follow.text}</span>
 				<Link
 					href={`https://x.com/${rewardsdata.follow.clientTwitterAcct}`}
 					target="_blank"
@@ -220,10 +220,10 @@ const RewardProgram = ({ posted, rewardsdata }: RewardProgramProps) => {
 
 			{/* Post */}
 			<div className="flex items-center space-x-2 mb-3">
-				<span className="w-8 h-8 flex items-center justify-center bg-white text-purple-900 rounded-lg font-bold">
+				<span className="w-7 h-7 flex items-center justify-center bg-white text-purple-900 rounded-lg font-bold">
 					2
 				</span>
-				<span>{rewardsdata.post.text}</span>
+				<span className="text-md">{rewardsdata.post.text}</span>
 				<button
 					onClick={() => {
 						if (
@@ -253,18 +253,18 @@ const RewardProgram = ({ posted, rewardsdata }: RewardProgramProps) => {
 					onChange={(
 						e: React.ChangeEvent<HTMLInputElement>
 					) => setUrl(e.target.value)}
-					className="flex-grow border border-gray-300 rounded px-2 py-2 max-w-[430px] text-black text-sm"
+					className="flex-grow border border-gray-300 rounded px-2 py-1.5 max-w-[430px] text-black text-sm"
 				/>
 				<button
 					type="submit"
-					className="bg-gradient-to-r from-red-500 via-pink-500 to-red-500 hover:bg-pink-700 text-white px-4 py-2.5 rounded-lg text-sm"
+					className="bg-gradient-to-r from-red-500 via-pink-500 to-red-500 hover:bg-pink-700 text-white px-4 py-[9px] rounded-lg text-sm"
 				>
 					{rewardsdata.verify.button}
 				</button>
 			</form>
 
 			{/* Step 3 */}
-			<div className="flex items-center space-x-2 mb-3">
+			<div className="flex items-center space-x-2 mb-2">
 				<span className="w-8 h-8 flex items-center justify-center bg-white text-purple-900 rounded-lg font-bold">
 					3
 				</span>
