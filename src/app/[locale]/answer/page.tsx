@@ -36,7 +36,7 @@ export default function AnswerPage() {
 			t("answer.version[1]");
 
 		setOption(selectedOption);
-	}, [searchParams]);
+	}, [searchParams, t]);
 
 	const answerData: AnswerData = {
 		version: {

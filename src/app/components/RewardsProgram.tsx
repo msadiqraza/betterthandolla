@@ -5,7 +5,7 @@ import checkTwitterPost from "@/modules/api/post";
 import { findUser } from "@/modules/supabase/findUser";
 import { insertUser } from "@/modules/supabase/insertUser";
 import Link from "next/link";
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useState } from "react";
 import { useAccount, useSignMessage } from "wagmi";
 import { useRouter } from "../../i18n/routing";
 import Loading from "./Loading";
@@ -43,27 +43,7 @@ const RewardProgram = ({ posted, rewardsdata }: RewardProgramProps) => {
 	const message = "Hello from BetterThanDollar";
 	const [err, setErr] = useState<string>();
 	const [isVerified, setIsVerified] = useState(false);
-	const [bodyHeight, setBodyHeight] = useState<number>(0);
 
-	useEffect(() => {
-		// Function to get the height of the body
-		const getBodyHeight = (): number => {
-			const body = document.body;
-			const html = document.documentElement;
-
-			return Math.max(
-				body.scrollHeight,
-				body.offsetHeight,
-				html.clientHeight,
-				html.scrollHeight,
-				html.offsetHeight
-			);
-		};
-
-		// Set the body height when the component mounts
-		setBodyHeight(getBodyHeight());
-	}, []); 
-	
 	const router = useRouter();
 	const abx = useAccount();
 
@@ -313,7 +293,9 @@ const RewardProgram = ({ posted, rewardsdata }: RewardProgramProps) => {
 			</p>
 
 			{loading && (
-				<div className={`absolute h-[170vh] inset-0 bg-black bg-opacity-50`}>
+				<div
+					className={`absolute h-[170vh] inset-0 bg-black bg-opacity-50`}
+				>
 					<Loading />
 				</div>
 			)}

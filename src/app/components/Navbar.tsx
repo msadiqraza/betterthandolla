@@ -8,7 +8,7 @@ import { styled } from "@mui/system";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { useLocale } from "next-intl";
 import { useRouter } from "next/navigation";
-import { ReactNode, useEffect, useState, useTransition } from "react";
+import { useEffect, useState } from "react";
 
 interface NavbarProps {
 	logo: string;
@@ -18,14 +18,13 @@ interface NavbarProps {
 
 const Navbar = ({ logo, buttonText, location }: NavbarProps) => {
 	const router = useRouter();
-	const [isPending, startTransition] = useTransition();
 	const localActive = useLocale();
 	const [width, setWidth] = useState(0);
 
-	const paddingValue = width<550 ? "10px 14px" : "10px 20px";
+	const paddingValue = width < 550 ? "10px 14px" : "10px 20px";
 
 	// Customizing the InputBase to remove the border and control styling
-	const CustomSelect = styled(Select)(({ theme }) => ({
+	const CustomSelect = styled(Select)(({}) => ({
 		".MuiSelect-icon": {
 			color: "red", // Change icon color to red
 			paddingLeft: "2px", // Add space between value and icon
@@ -41,15 +40,10 @@ const Navbar = ({ logo, buttonText, location }: NavbarProps) => {
 		},
 	}));
 
-	const onSelectChange = (
-		event: SelectChangeEvent<unknown>,
-		child: ReactNode
-	) => {
+	const onSelectChange = (event: SelectChangeEvent<unknown>) => {
 		const nextLocale = event.target.value;
 
-		startTransition(() => {
-			router.replace(`/${nextLocale}/${location}`); // Update locale
-		});
+		router.replace(`/${nextLocale}/${location}`); // Update locale
 	};
 
 	useEffect(() => {
@@ -63,8 +57,12 @@ const Navbar = ({ logo, buttonText, location }: NavbarProps) => {
 					<div className="flex flex-col">
 						<Dots
 							space={24}
-							height={11}
-							weight={11}
+							height={
+								11
+							}
+							weight={
+								11
+							}
 							style=""
 							colour=""
 						/>
@@ -91,7 +89,9 @@ const Navbar = ({ logo, buttonText, location }: NavbarProps) => {
 					</div>
 				)}
 
-				<div className={`flex items-center space-x-1 md:space-x-4`}>
+				<div
+					className={`flex items-center space-x-1 md:space-x-4`}
+				>
 					<CustomSelect
 						value={
 							width >
