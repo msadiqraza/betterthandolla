@@ -294,7 +294,7 @@ const RewardProgram = ({ posted, rewardsdata }: RewardProgramProps) => {
 
 			{loading && (
 				<div
-					className={`absolute h-[170vh] inset-0 bg-black bg-opacity-50`}
+					className={`absolute h-[170vh] lg:h-h-screen inset-0 bg-black bg-opacity-50`}
 				>
 					<Loading />
 				</div>
