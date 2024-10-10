@@ -123,6 +123,7 @@ export default function RewardsPage() {
 		},
 	};
 
+
 	// Render the client-side component with fetched data as props
 	return (
 		<Providers>

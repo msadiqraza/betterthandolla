@@ -12,14 +12,10 @@ const CountUpTimer = ({ subheading }: CountUpTimerProps) => {
 
 	useEffect(() => {
 		const totalUsers = countUsers()
-		
 		console.log("countUsers", totalUsers)
-
-		const timer = setInterval(() => {
-			setCount((prevCount) => prevCount + 1);
-		}, 100); // Increase every 100ms for a faster effect
-
-		return () => clearInterval(timer);
+		if (!totalUsers) {
+			setCount(10)
+		}
 	}, []);
 
 	return (

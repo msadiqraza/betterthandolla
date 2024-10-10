@@ -106,7 +106,7 @@ const BoostRewardsPage: React.FC<RewardsData> = ({ rewardsData }) => {
 				</p>
 			</div>
 
-			<div className="-mt-[80px] lg:mt-0 col-start-3 col-end-7 row-start-6 row-end-7 lg:col-start-6 lg:row-start-5 lg:row-end-7">
+			<div className=" col-start-3 col-end-7 row-start-6 row-end-7 lg:col-start-6 lg:row-start-5 lg:row-end-7">
 				<RewardProgram
 					posted={hasPosted}
 					rewardsdata={
@@ -115,7 +115,7 @@ const BoostRewardsPage: React.FC<RewardsData> = ({ rewardsData }) => {
 				/>
 			</div>
 
-			<div className="mt-[300px] mb-10 row-start-7 row-end-8 col-start-3 col-end-7 lg:mt-0 lg:row-start-6 lg:row-end-8 flex justify-end items-center flex-col">
+			<div className=" mb-10 row-start-7 row-end-8 col-start-3 col-end-7  lg:row-start-6 lg:row-end-8 flex justify-end items-center flex-col">
 				<CountdownTimer
 					time={
 						rewardsData

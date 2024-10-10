@@ -5,7 +5,7 @@ import checkTwitterPost from "@/modules/api/post";
 import { findUser } from "@/modules/supabase/findUser";
 import { insertUser } from "@/modules/supabase/insertUser";
 import Link from "next/link";
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { useAccount, useSignMessage } from "wagmi";
 import { useRouter } from "../../i18n/routing";
 import Loading from "./Loading";
@@ -43,7 +43,27 @@ const RewardProgram = ({ posted, rewardsdata }: RewardProgramProps) => {
 	const message = "Hello from BetterThanDollar";
 	const [err, setErr] = useState<string>();
 	const [isVerified, setIsVerified] = useState(false);
+	const [bodyHeight, setBodyHeight] = useState<number>(0);
 
+	useEffect(() => {
+		// Function to get the height of the body
+		const getBodyHeight = (): number => {
+			const body = document.body;
+			const html = document.documentElement;
+
+			return Math.max(
+				body.scrollHeight,
+				body.offsetHeight,
+				html.clientHeight,
+				html.scrollHeight,
+				html.offsetHeight
+			);
+		};
+
+		// Set the body height when the component mounts
+		setBodyHeight(getBodyHeight());
+	}, []); 
+	
 	const router = useRouter();
 	const abx = useAccount();
 
@@ -206,7 +226,9 @@ const RewardProgram = ({ posted, rewardsdata }: RewardProgramProps) => {
 				<span className="w-7 h-7 flex items-center justify-center bg-white text-purple-900 rounded-lg font-bold">
 					1
 				</span>
-				<span className="text-md">{rewardsdata.follow.text}</span>
+				<span className="text-md">
+					{rewardsdata.follow.text}
+				</span>
 				<Link
 					href={`https://x.com/${rewardsdata.follow.clientTwitterAcct}`}
 					target="_blank"
@@ -223,7 +245,9 @@ const RewardProgram = ({ posted, rewardsdata }: RewardProgramProps) => {
 				<span className="w-7 h-7 flex items-center justify-center bg-white text-purple-900 rounded-lg font-bold">
 					2
 				</span>
-				<span className="text-md">{rewardsdata.post.text}</span>
+				<span className="text-md">
+					{rewardsdata.post.text}
+				</span>
 				<button
 					onClick={() => {
 						if (
@@ -289,7 +313,7 @@ const RewardProgram = ({ posted, rewardsdata }: RewardProgramProps) => {
 			</p>
 
 			{loading && (
-				<div className="absolute inset-0 bg-black bg-opacity-50">
+				<div className={`absolute h-[170vh] inset-0 bg-black bg-opacity-50`}>
 					<Loading />
 				</div>
 			)}

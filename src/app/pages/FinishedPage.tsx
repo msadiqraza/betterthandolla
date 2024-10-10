@@ -24,7 +24,7 @@ const MissionCompletePage = ({ data }: MissionCompletePageProps) => {
 	};
 	return (
 		<Layout>
-			<div className="col-start-3 row-start-4 row-end-7 col-end-7 flex flex-col items-center justify-start">
+			<div className="mt-20 lg:mt-0 col-start-3 row-start-4 row-end-7 col-end-7 flex flex-col items-center justify-start">
 				<div className="bg-gradient-to-r from-pink-500 to-red-500 text-white p-6 rounded-t-2xl w-full max-w-md">
 					<div className="flex flex-col justify-center items-center">
 						<div>

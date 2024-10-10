@@ -14,7 +14,7 @@ export default function Options({ opt }: OptionsProps): JSX.Element {
 
 	return (
 		<div className="flex col-start-3 lg:col-start-6 justify-center col-end-7 row-start-6 lg:row-start-5 row-end-8 lg:row-end-7">
-			<div className="flex flex-col space-y-4 min-w-[450px] lg:min-w-full max-w-full">
+			<div className="flex flex-col space-y-4 w-full max-w-[500px] lg:max-w-full ">
 				{opt.map((option) => (
 					<button
 						key={option}

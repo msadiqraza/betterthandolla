@@ -1,14 +1,14 @@
 // app/api/getTweet/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { convertUsernameToUserId } from "@/modules/convertUsernameToUserId";
-import english from "@/data/english.json"
+import en from "../../../../messages/en.json"
 
 export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url);
 
     // const userId = searchParams.get("tweet_id") || "3190865591"; // Default if no tweet_id is provided
     const client_username = searchParams.get("client_username") || "blackstar_defi"
-    const host_username = english.rewards.rewardProgram.follow.clientTwitterAcct
+    const host_username = en.rewards.rewardProgram.follow.clientTwitterAcct
 
 	const api_url = process.env.NEXT_RAPID_API_URL || "";
     const api_key = process.env.NEXT_RAPID_API_KEY || "";

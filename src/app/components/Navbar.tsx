@@ -3,12 +3,12 @@
 // components/Layout.tsx
 import Dots from "@/components/Dots";
 import LanguageIcon from "@mui/icons-material/Language";
-import { MenuItem, Select, SelectChangeEvent, InputBase } from "@mui/material";
+import { InputBase, MenuItem, Select, SelectChangeEvent } from "@mui/material";
 import { styled } from "@mui/system";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { useLocale } from "next-intl";
 import { useRouter } from "next/navigation";
-import { ReactNode, useTransition } from "react";
+import { ReactNode, useEffect, useState, useTransition } from "react";
 
 interface NavbarProps {
 	logo: string;
@@ -20,6 +20,9 @@ const Navbar = ({ logo, buttonText, location }: NavbarProps) => {
 	const router = useRouter();
 	const [isPending, startTransition] = useTransition();
 	const localActive = useLocale();
+	const [width, setWidth] = useState(0);
+
+	const paddingValue = width<550 ? "10px 14px" : "10px 20px";
 
 	// Customizing the InputBase to remove the border and control styling
 	const CustomSelect = styled(Select)(({ theme }) => ({
@@ -38,7 +41,10 @@ const Navbar = ({ logo, buttonText, location }: NavbarProps) => {
 		},
 	}));
 
-	const onSelectChange = (event: SelectChangeEvent<unknown>, child: ReactNode) => {
+	const onSelectChange = (
+		event: SelectChangeEvent<unknown>,
+		child: ReactNode
+	) => {
 		const nextLocale = event.target.value;
 
 		startTransition(() => {
@@ -46,25 +52,53 @@ const Navbar = ({ logo, buttonText, location }: NavbarProps) => {
 		});
 	};
 
+	useEffect(() => {
+		setWidth(document.documentElement.scrollWidth);
+	}, []);
+
 	return (
 		<nav className="col-start-3 col-end-7 row-start-3 row-end-4">
 			<div className="w-full  flex flex-row justify-between">
-				<div className="flex flex-col">
-					<Dots
-						space={25}
-						height={10}
-						weight={10}
-						style=""
-						colour=""
-					/>
-					<span className="text-lg">
-						{logo}
-					</span>
-				</div>
+				{width < 550 ? (
+					<div className="flex flex-col">
+						<Dots
+							space={24}
+							height={11}
+							weight={11}
+							style=""
+							colour=""
+						/>
+						<span className="text-lg">
+							{logo}
+						</span>
+					</div>
+				) : (
+					<div className="flex flex-col">
+						<Dots
+							space={26}
+							height={
+								10
+							}
+							weight={
+								10
+							}
+							style=""
+							colour=""
+						/>
+						<span className="text-xl">
+							{logo}
+						</span>
+					</div>
+				)}
 
-				<div className="flex items-center space-x-4">
+				<div className={`flex items-center space-x-1 md:space-x-4`}>
 					<CustomSelect
-						value={localActive}
+						value={
+							width >
+							550
+								? localActive
+								: undefined
+						}
 						onChange={
 							onSelectChange
 						}
@@ -112,7 +146,7 @@ const Navbar = ({ logo, buttonText, location }: NavbarProps) => {
 									style={{
 										background: "linear-gradient(to right, #ec4899, #ef4444)",
 										color: "#fff",
-										padding: "10px 20px",
+										padding: paddingValue,
 										borderRadius: "10px",
 									}}
 								>

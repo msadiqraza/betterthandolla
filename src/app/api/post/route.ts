@@ -1,13 +1,14 @@
 // app/api/getTweet/route.ts
 import { NextRequest, NextResponse } from "next/server";
-import english from "@/data/english.json"
+import en from "../../../../messages/en.json";
+
 //change to send data from client
 
 export async function GET(request: NextRequest) {
 	const { searchParams } = new URL(request.url);
 
 	const tweetId = searchParams.get("tweet_id") || "1838129689136714087"; // You can make this dynamic if needed.
-	const clientUsername = english.rewards.rewardProgram.follow.clientTwitterAcct;
+	const clientUsername = en.rewards.rewardProgram.follow.clientTwitterAcct;
 
 	const api_url = process.env.NEXT_RAPID_API_URL!;
 	const api_key = process.env.NEXT_RAPID_API_KEY!;

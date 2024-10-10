@@ -27,10 +27,11 @@
 	"rewards": {
 		"heading": "Três passos para aumentar suas recompensas",
 		"details": {
-			"a": "Quanto mais rápido você se juntar, maior será o aumento de suas recompensas a partir de 20 de janeiro de 2025.",
-			"b": "Basta concluir os três passos para o progresso →",
-			"c": "Quando a nova solução • • • que é melhor que o dólar for lançada, você acumulará recompensas aumentadas mantendo e enviando esta nova super-moeda.",
-			"d": "Mais tarde, reivindique as recompensas na carteira que você conectar aqui."
+			"a": "Quanto mais rápido você aderir, maior será o aumento de suas recompensas a partir de 20 de janeiro de 2025.",
+			"b": "Basta completar as três etapas para a caixa.",
+			"c": "Quando a nova solução",
+			"d": "melhor que o dólar for lançada, você acumulará recompensas aumentadas ao manter e enviar esta nova super-moeda.",
+			"e": "Depois, reivindique as recompensas na carteira que você conectar aqui."
 		},
 		"rewardProgram": {
 			"heading": "Junte-se ao programa de recompensas BetterThanDollar",
