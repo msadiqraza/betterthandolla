@@ -4,9 +4,11 @@ import checkTwitterFollow from "@/modules/api/follow";
 import checkTwitterPost from "@/modules/api/post";
 import { findUser } from "@/modules/supabase/findUser";
 import { insertUser } from "@/modules/supabase/insertUser";
+import { updateWalletAddress } from "@/modules/supabase/UpdateWalletAddress";
+
 import { useConnectModal } from "@rainbow-me/rainbowkit";
 import Link from "next/link";
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { useAccount, useSignMessage } from "wagmi";
 import { useRouter } from "../../i18n/routing";
 import Loading from "./Loading";
@@ -83,11 +85,11 @@ const RewardProgram = ({ posted, rewardsdata }: RewardProgramProps) => {
 	const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
 		e.preventDefault();
 
-		if (posted) handleVerify(url);
+		if (posted) handleVerify();
 		else console.log("User has not posted");
 	};
 
-	const handleVerify = async (url: string): Promise<void> => {
+	const handleVerify = async (): Promise<void> => {
 		console.log("url", url);
 
 		setLoading(true);
@@ -101,7 +103,6 @@ const RewardProgram = ({ posted, rewardsdata }: RewardProgramProps) => {
 		}
 
 		console.log("wallet", wallet);
-
 		const { username, tweetId } =
 			extractUsernameAndTweetId(url);
 
@@ -195,12 +196,37 @@ const RewardProgram = ({ posted, rewardsdata }: RewardProgramProps) => {
 		},
 	});
 
+	const [connectionTriggered, setConnectionTriggered] = useState(false);
+
+	useEffect(() => {
+		if (connectionTriggered && isConnected) {
+			handlePostConnection(); // Call the function after successful connection
+		}
+	}, [isConnected, connectionTriggered]);
+
+	const handlePostConnection = async () => {
+		// Logic to execute after the wallet is connected
+		const { username } = extractUsernameAndTweetId(url);
+		if (address) {
+			console.log(address, "address");
+
+			const updateWallet = await updateWalletAddress(
+				username,
+				address
+			);
+			console.log(updateWallet);
+
+			signMessage({
+				message: "Hello from BetterThanDollar!",
+			});
+		}
+	};
+
 	const handleButtonClick = async () => {
 		if (!isConnected) {
-			// Wallet not connected, prompt the user to connect
 			if (openConnectModal) {
-				// Ensure the modal function is defined
-				openConnectModal();
+				openConnectModal(); // Open the wallet connection modal
+				setConnectionTriggered(true); // Mark that connection was triggered
 			} else {
 				console.error(
 					"Connect modal is not available"
@@ -208,10 +234,8 @@ const RewardProgram = ({ posted, rewardsdata }: RewardProgramProps) => {
 			}
 		} else {
 			console.log("Wallet is already connected");
+			handlePostConnection(); // Directly handle connection if already connected
 		}
-
-		// Wallet is connected, proceed with signing the message
-		signMessage({ message: "Hello from BetterThanDollar!" });
 	};
 
 	return (
@@ -327,3 +351,6 @@ const RewardProgram = ({ posted, rewardsdata }: RewardProgramProps) => {
 };
 
 export default RewardProgram;
+function UpdateWalletAddress() {
+	throw new Error("Function not implemented.");
+}
