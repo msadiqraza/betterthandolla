@@ -349,8 +349,3 @@ const RewardProgram = ({ posted, rewardsdata }: RewardProgramProps) => {
 		</div>
 	);
 };
-
-export default RewardProgram;
-function UpdateWalletAddress() {
-	throw new Error("Function not implemented.");
-}
