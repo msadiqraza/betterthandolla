@@ -318,7 +318,7 @@ const RewardProgram = ({ posted, rewardsdata }: RewardProgramProps) => {
 				<span>{rewardsdata.sign.text}</span>
 				<button
 					onClick={() => {
-						if (!isVerified)
+						if (isVerified)
 							handleButtonClick();
 					}}
 					className="bg-gradient-to-r from-red-500 via-pink-500 to-red-500 hover:bg-pink-700 text-white px-4 py-2 rounded-lg text-sm"
@@ -333,7 +333,7 @@ const RewardProgram = ({ posted, rewardsdata }: RewardProgramProps) => {
 
 			{loading && (
 				<div
-					className={`absolute h-[170vh] lg:h-h-screen inset-0 bg-black bg-opacity-50`}
+					className={`absolute h-[170vh] lg:h-screen inset-0 bg-black bg-opacity-50`}
 				>
 					<Loading />
 				</div>
