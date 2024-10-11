@@ -119,7 +119,6 @@ export default function RewardsPage() {
 	// Render the client-side component with fetched data as props
 	return (
 		<Providers>
-			<div>{rewardsData.launchDate}</div>
 			<BoostRewardsPage rewardsData={rewardsData} />
 		</Providers>
 	);
