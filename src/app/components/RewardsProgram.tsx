@@ -349,3 +349,5 @@ const RewardProgram = ({ posted, rewardsdata }: RewardProgramProps) => {
 		</div>
 	);
 };
+
+export default RewardProgram;
