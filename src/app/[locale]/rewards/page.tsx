@@ -4,7 +4,14 @@ import { Providers } from "@/Providers";
 import { useTranslations } from "next-intl";
 
 interface RewardsData {
-	heading: string;
+	heading: {
+		head: string;
+		month: {
+			a: string;
+			b: string;
+			c: string;
+		}
+	};
 	details: {
 		a: string;
 		b: string;
@@ -33,14 +40,7 @@ interface RewardsData {
 		};
 		footer: string;
 	};
-	countdownTimer: {
-		time: {
-			days: string;
-			hours: string;
-			minutes: string;
-			seconds: string;
-		};
-	};
+	launchDate: string
 	footer: string;
 	navbar: {
 		logo: string;
@@ -53,7 +53,14 @@ export default function RewardsPage() {
 
 	// Constructing the rewardsData object
 	const rewardsData: RewardsData = {
-		heading: t("rewards.heading"),
+		heading: {
+			head: t("rewards.heading.head"),
+			month: {
+				a: t("rewards.heading.month.a"),
+				b: t("rewards.heading.month.b"),
+				c: t("rewards.heading.month.c"),
+			},
+		},
 		details: {
 			a: t("rewards.details.a"),
 			b: t("rewards.details.b"),
@@ -100,22 +107,7 @@ export default function RewardsPage() {
 			},
 			footer: t("rewards.rewardProgram.footer"),
 		},
-		countdownTimer: {
-			time: {
-				days: t(
-					"rewards.countdownTimer.time.days"
-				),
-				hours: t(
-					"rewards.countdownTimer.time.hours"
-				),
-				minutes: t(
-					"rewards.countdownTimer.time.minutes"
-				),
-				seconds: t(
-					"rewards.countdownTimer.time.seconds"
-				),
-			},
-		},
+		launchDate:t("rewards.launchDate"),
 		footer: t("rewards.footer"),
 		navbar: {
 			logo: t("rewards.navbar.logo"),
@@ -127,6 +119,7 @@ export default function RewardsPage() {
 	// Render the client-side component with fetched data as props
 	return (
 		<Providers>
+			<div>{rewardsData.launchDate}</div>
 			<BoostRewardsPage rewardsData={rewardsData} />
 		</Providers>
 	);

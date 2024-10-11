@@ -25,7 +25,14 @@
 	},
 
 	"rewards": {
-		"heading": "三步提升您的奖励",
+		"heading": {
+			"head": "三步提升您的奖励",
+			"month": {
+				"a": "在此之前加入 ",
+				"b": "，您所有未来的",
+				"c": "奖励都将被乘以"
+			}
+		},
 		"details": {
 			"a": "你加入得越快，从2025年1月20日开始，你的奖励将获得更高的提升。",
 			"b": "只需完成三个步骤到盒子。",
@@ -37,7 +44,7 @@
 			"heading": "加入 BetterThanDollar 奖励计划",
 			"follow": {
 				"text": "在 X 上关注我们:",
-				"clientTwitterAcct": "SkyEcosystem",
+				"clientTwitterAcct": "betterthandolla",
 				"button": "关注"
 			},
 			"post": {
@@ -54,14 +61,7 @@
 			},
 			"footer": "签名信息以确认资格。您的连接钱包将有资格领取双倍 BetterThanDollar 奖励。"
 		},
-		"countdownTimer": {
-			"time": {
-				"days": "65",
-				"hours": "12",
-				"minutes": "3",
-				"seconds": "59"
-			}
-		},
+		"launchDate":"January 1, 2025 00:00:00",
 		"footer": "启动时间",
 		"navbar": {
 			"logo": "BetterThanDollar",
@@ -108,7 +108,8 @@
 					"a": "新的",
 					"b": "是 @BetterThanDollar，当其对我的本币的价格稳定性优于许多挂钩美元的代币时。"
 				},
-				"buttonText": "发布"
+				"buttonText": "发布",
+				"post": "新超级稳定币BetterThanDollar即将到来！\n这是第一个在国际价格稳定性上优于任何与美元挂钩的币种的货币。🌍\n像我一样：在这里关注并分享关于比美元更好的解决方案的帖子 🔴🔴🔴 即将到来。"
 			},
 			"共享稳定性": {
 				"heading": "是",
@@ -117,7 +118,8 @@
 					"a": "新的",
 					"b": "是 @BetterThanDollar，当稳定性共享时 — 以便所有人受益，而不仅仅是一个特定国家的持有者。"
 				},
-				"buttonText": "发布"
+				"buttonText": "发布",
+				"post": "新超级稳定币BetterThanDollar即将发布！\n它不偏不倚，平等分享价格稳定性，不论国籍，不偏向于美元。公平对待所有人！⚖️\n像我一样：在这里关注并分享关于比美元更好的解决方案的帖子 🔴🔴🔴 即将到来。"
 			},
 			"抗审查": {
 				"heading": "是",
@@ -126,7 +128,8 @@
 					"a": "新的",
 					"b": "是 @BetterThanDollar，当它能够抵抗政府的任意干预和远程没收我的资产时。"
 				},
-				"buttonText": "发布"
+				"buttonText": "发布",
+				"post": "新抗审查超级稳定币BetterThanDollar！\n所有主要的与美元挂钩的币种都具有内置功能，可以远程没收你的币 🔒\n这个新解决方案没有这种功能。货币自由和言论自由同样重要。\n像我一样：在这里关注 + 分享帖子。"
 			},
 			"中立性": {
 				"heading": "是",
@@ -135,7 +138,8 @@
 					"a": "新的",
 					"b": "@BetterThanDollar 不依赖于某国政治相关的货币，而是基于现代技术确保最佳的价格稳定性。"
 				},
-				"buttonText": "发布"
+				"buttonText": "发布",
+				"post": "新超级稳定币BetterThanDollar！\n它是中立的，只是基于现代技术确保最好的价格稳定性，不受与货币相关的政治影响。🤝\n像我一样：在这里关注并分享帖子。更好、更中立的价格稳定性。"
 			}
 		},
 		"navbar": {

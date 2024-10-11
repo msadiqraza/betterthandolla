@@ -25,7 +25,14 @@
 	},
 
 	"rewards": {
-		"heading": "Três passos para aumentar suas recompensas",
+		"heading": {
+			"head": "Três passos para aumentar suas recompensas",
+			"month": {
+				"a": "Junte-se antes de ",
+				"b": " e todas as suas futuras",
+				"c": "recompensas serão multiplicadas por"
+			}
+		},
 		"details": {
 			"a": "Quanto mais rápido você aderir, maior será o aumento de suas recompensas a partir de 20 de janeiro de 2025.",
 			"b": "Basta completar as três etapas para a caixa.",
@@ -37,7 +44,7 @@
 			"heading": "Junte-se ao programa de recompensas BetterThanDollar",
 			"follow": {
 				"text": "Siga-nos no X:",
-				"clientTwitterAcct": "SkyEcosystem",
+				"clientTwitterAcct": "betterthandolla",
 				"button": "Seguir"
 			},
 			"post": {
@@ -54,14 +61,8 @@
 			},
 			"footer": "Assine a mensagem para confirmar a elegibilidade. Sua carteira conectada se qualificará para reivindicar recompensas em dobro do BetterThanDollar."
 		},
-		"countdownTimer": {
-			"time": {
-				"days": "65",
-				"hours": "12",
-				"minutes": "3",
-				"seconds": "59"
-			}
-		},
+		"launchDate": "January 1, 2025 00:00:00",
+
 		"footer": "Tempo para lançamento",
 		"navbar": {
 			"logo": "BetterThanDollar",
@@ -113,7 +114,8 @@
 					"a": "O novo",
 					"b": "é @BetterThanDollar quando a estabilidade de preço em relação à minha moeda nacional é superior à oferecida por muitos tokens atrelados ao USD."
 				},
-				"buttonText": "Postar"
+				"buttonText": "Postar",
+				"post": "Nova super stablecoin BetterThanDollar está a caminho!\nÉ a primeira moeda que proporciona uma estabilidade de preços internacional melhor do que qualquer moeda vinculada ao dólar USD. 🌍\nFaça como eu: Siga aqui e compartilhe o post sobre uma solução melhor do que o US$ 🔴🔴🔴 está chegando."
 			},
 			"ESTABILIDADE COMPARTILHADA": {
 				"heading": "SIM",
@@ -122,7 +124,8 @@
 					"a": "O novo",
 					"b": "é @BetterThanDollar quando a estabilidade é compartilhada, para que todos se beneficiem - não apenas os detentores de uma moeda nacional específica."
 				},
-				"buttonText": "Postar"
+				"buttonText": "Postar",
+				"post": "Nova super stablecoin BetterThanDollar está chegando!\nEla é imparcial e compartilha a estabilidade de preços entre todos, independentemente da nacionalidade, sem favorecer o dólar americano sobre todos os outros. Justo para todos! ⚖️\nFaça como eu: Siga aqui e compartilhe o post sobre uma solução melhor que o US$ 🔴🔴🔴 está chegando."
 			},
 			"RESISTÊNCIA À CENSURA": {
 				"heading": "SIM",
@@ -131,7 +134,8 @@
 					"a": "O novo",
 					"b": "é @BetterThanDollar quando resiste aos caprichos arbitrários de governos e sua capacidade de confiscar meus ativos remotamente sem base legal."
 				},
-				"buttonText": "Postar"
+				"buttonText": "Postar",
+				"post": "Nova super stablecoin resistente à censura BetterThanDollar!\nTodas as principais moedas vinculadas ao USD têm uma função embutida que pode confiscar remotamente suas moedas 🔒\nEsta nova solução não tem. A liberdade de moeda é tão importante quanto a liberdade de expressão.\nFaça como eu: Siga aqui + compartilhe o post."
 			},
 			"NEUTRALIDADE": {
 				"heading": "SIM",
@@ -140,7 +144,8 @@
 					"a": "O novo",
 					"b": "@BetterThanDollar não está vinculado a uma moeda nacional relacionada à política desse país, mas apenas garante a melhor estabilidade de preço baseada em tecnologia moderna."
 				},
-				"buttonText": "Postar"
+				"buttonText": "Postar",
+				"post": "Nova super stablecoin BetterThanDollar!\nEla é neutra, garantindo simplesmente a melhor estabilidade de preços com base na tecnologia moderna, livre de políticas relacionadas ao dinheiro. 🤝\nFaça como eu: Siga aqui e compartilhe o post. Melhor, estabilidade de preços neutra."
 			}
 		},
 		"navbar": {

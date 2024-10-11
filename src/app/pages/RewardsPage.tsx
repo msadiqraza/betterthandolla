@@ -10,7 +10,14 @@ import { ArrowForward } from "@mui/icons-material";
 import React, { useEffect, useState } from "react";
 
 interface BoostRewardsProps {
-	heading: string;
+	heading: {
+		head: string;
+		month: {
+			a: string;
+			b: string;
+			c: string;
+		};
+	};
 	details: {
 		a: string;
 		b: string;
@@ -39,14 +46,7 @@ interface BoostRewardsProps {
 		};
 		footer: string;
 	};
-	countdownTimer: {
-		time: {
-			days: string;
-			hours: string;
-			minutes: string;
-			seconds: string;
-		};
-	};
+	launchDate: string
 	footer: string;
 	navbar: {
 		logo: string;
@@ -58,16 +58,80 @@ interface RewardsData {
 	rewardsData: BoostRewardsProps;
 }
 
+type Value = {
+	a: number;
+	b: number;
+	month: string;
+};
+
+const monthNames = [
+	"January",
+	"February",
+	"March",
+	"April",
+	"May",
+	"June",
+	"July",
+	"August",
+	"September",
+	"October",
+	"November",
+	"December",
+];
+
 const BoostRewardsPage: React.FC<RewardsData> = ({ rewardsData }) => {
 	const [hasPosted, setHasPosted] = useState(false);
+	const [value, setValue] = useState<Value>({ a: 1, b: 0, month: "" });
+	const [isClient, setIsClient] = useState(false);
 
 	useEffect(() => {
+		setIsClient(true);
+		
 		const params = new URLSearchParams(window.location.search);
 		const posted = params.get("posted") || "false";
 
 		console.log("Posted", posted);
 		if (posted === "true") setHasPosted(true);
+
+		const currentMonth = new Date().getMonth(); // getMonth() returns 0 for January, 1 for February, etc.
+		const currentMonthName = monthNames[currentMonth];
+
+		switch (currentMonth) {
+			case 9: // October
+				setValue({
+					a: 3,
+					b: 0,
+					month: currentMonthName,
+				});
+				break;
+			case 10: // November
+				setValue({
+					a: 2,
+					b: 0,
+					month: currentMonthName,
+				});
+				break;
+			case 11: // December
+				setValue({
+					a: 1,
+					b: 5,
+					month: currentMonthName,
+				});
+				break;
+			default:
+				setValue({
+					a: 1,
+					b: 0,
+					month: currentMonthName,
+				});
+				break;
+		}
 	}, []);
+
+	  if (!isClient) {
+			// Return a fallback while we wait for the client-side rendering to take over
+			return null;
+		}
 
 	return (
 		<Layout>
@@ -79,18 +143,41 @@ const BoostRewardsPage: React.FC<RewardsData> = ({ rewardsData }) => {
 				location="rewards"
 			/>
 
-			<h1 className="font-bold col-start-3 col-end-7 row-start-4 row-end-5 lg:col-end-4 text-3xl lg:text-4xl">
-				{rewardsData.heading}
-			</h1>
+			<div className="font-bold col-start-3 col-end-7 row-start-4 row-end-5 lg:col-end-4 text-3xl lg:text-4xl">
+				{rewardsData.heading.head} x{" "}
+				<div className="bg-black text-white inline">
+					{value.a}
+				</div>
+				.
+				<div className="bg-black text-white inline">
+					{value.b}
+				</div>
+				!
+			</div>
 
 			<div className="col-start-3 col-end-7 row-start-5 row-end-5 lg:col-end-4 lg:row-end-7">
 				<p className="mb-3">
 					{rewardsData.details.a}
 				</p>
-				<p className="mb-2">
+				<div className="mb-3">
+					{rewardsData.heading.month.a}
+					<p className="font-bold inline">
+						{value.month} 30
+					</p>{" "}
+					{rewardsData.heading.month.b}
+					<Dots
+						space={5}
+						height={10}
+						weight={10}
+						style="justify-center items-center"
+					/>
+					{rewardsData.heading.month.c}{" "}
+					x{value.a}.{value.b}
+				</div>
+				<div className="mb-2">
 					{rewardsData.details.b}
 					<ArrowForward />
-				</p>
+				</div>
 				<div className="mb-2">
 					{rewardsData.details.c}
 					<Dots
@@ -116,13 +203,7 @@ const BoostRewardsPage: React.FC<RewardsData> = ({ rewardsData }) => {
 			</div>
 
 			<div className=" mb-10 row-start-7 row-end-8 col-start-3 col-end-7  lg:row-start-6 lg:row-end-8 flex justify-end items-center flex-col">
-				<CountdownTimer
-					time={
-						rewardsData
-							.countdownTimer
-							.time
-					}
-				/>
+				<CountdownTimer launchDate={rewardsData.launchDate}	/>
 				<h2 className="text-md text-center font-semibold mt-2">
 					{rewardsData.footer}
 				</h2>
