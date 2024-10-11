@@ -4,6 +4,7 @@ import checkTwitterFollow from "@/modules/api/follow";
 import checkTwitterPost from "@/modules/api/post";
 import { findUser } from "@/modules/supabase/findUser";
 import { insertUser } from "@/modules/supabase/insertUser";
+import { useConnectModal } from "@rainbow-me/rainbowkit";
 import Link from "next/link";
 import { FormEvent, useState } from "react";
 import { useAccount, useSignMessage } from "wagmi";
@@ -40,12 +41,12 @@ const RewardProgram = ({ posted, rewardsdata }: RewardProgramProps) => {
 
 	const [hasFollowed, setHasFollowed] = useState(false);
 	const [url, setUrl] = useState("");
-	const message = "Hello from BetterThanDollar";
 	const [err, setErr] = useState<string>();
 	const [isVerified, setIsVerified] = useState(false);
 
 	const router = useRouter();
-	const abx = useAccount();
+	const { address, isConnected } = useAccount(); // Get wallet connection status
+	const { openConnectModal } = useConnectModal();
 
 	const handleFollow = () => {
 		setHasFollowed(true);
@@ -92,8 +93,8 @@ const RewardProgram = ({ posted, rewardsdata }: RewardProgramProps) => {
 		setLoading(true);
 		let wallet: `0x${string}`;
 
-		if (abx.isConnected && abx.address) {
-			wallet = `0x${abx.address.slice(2)}`;
+		if (address && isConnected) {
+			wallet = `0x${address.slice(2)}`;
 		} else {
 			wallet =
 				"0x0000000000000000000000000000000000000000";
@@ -183,7 +184,6 @@ const RewardProgram = ({ posted, rewardsdata }: RewardProgramProps) => {
 					"Signature received:",
 					data
 				);
-
 				router.push("/finished");
 			},
 			onError(error: Error) {
@@ -194,6 +194,25 @@ const RewardProgram = ({ posted, rewardsdata }: RewardProgramProps) => {
 			},
 		},
 	});
+
+	const handleButtonClick = async () => {
+		if (!isConnected) {
+			// Wallet not connected, prompt the user to connect
+			if (openConnectModal) {
+				// Ensure the modal function is defined
+				openConnectModal();
+			} else {
+				console.error(
+					"Connect modal is not available"
+				);
+			}
+		} else {
+			console.log("Wallet is already connected");
+		}
+
+		// Wallet is connected, proceed with signing the message
+		signMessage({ message: "Hello from BetterThanDollar!" });
+	};
 
 	return (
 		<div className="bg-gradient-to-tr from-[rgb(92,33,65)] to-[rgb(50,42,57)] text-white text-md rounded-lg p-4 mx-auto">
@@ -275,12 +294,8 @@ const RewardProgram = ({ posted, rewardsdata }: RewardProgramProps) => {
 				<span>{rewardsdata.sign.text}</span>
 				<button
 					onClick={() => {
-						if (isVerified)
-							signMessage(
-								{
-									message,
-								}
-							);
+						if (!isVerified)
+							handleButtonClick();
 					}}
 					className="bg-gradient-to-r from-red-500 via-pink-500 to-red-500 hover:bg-pink-700 text-white px-4 py-2 rounded-lg text-sm"
 				>

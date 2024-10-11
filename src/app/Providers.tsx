@@ -8,7 +8,7 @@ import { WagmiProvider } from "wagmi";
 import { arbitrum, base, holesky, mainnet, sepolia } from "wagmi/chains";
 
 const config = getDefaultConfig({
-	appName: "Tweetbounty",
+	appName: "BetterThanDollar",
 	projectId: "a8bfd45ff108617b29ceef2d07f137ee",
 	chains: [mainnet, base, arbitrum, sepolia, holesky],
 	ssr: true,
