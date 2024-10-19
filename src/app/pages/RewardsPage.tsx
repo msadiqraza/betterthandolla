@@ -46,7 +46,7 @@ interface BoostRewardsProps {
 		};
 		footer: string;
 	};
-	launchDate: string
+	launchDate: string;
 	footer: string;
 	navbar: {
 		logo: string;
@@ -86,7 +86,7 @@ const BoostRewardsPage: React.FC<RewardsData> = ({ rewardsData }) => {
 
 	useEffect(() => {
 		setIsClient(true);
-		
+
 		const params = new URLSearchParams(window.location.search);
 		const posted = params.get("posted") || "false";
 
@@ -128,10 +128,10 @@ const BoostRewardsPage: React.FC<RewardsData> = ({ rewardsData }) => {
 		}
 	}, []);
 
-	  if (!isClient) {
-			// Return a fallback while we wait for the client-side rendering to take over
-			return null;
-		}
+	if (!isClient) {
+		// Return a fallback while we wait for the client-side rendering to take over
+		return null;
+	}
 
 	return (
 		<Layout>
@@ -143,24 +143,24 @@ const BoostRewardsPage: React.FC<RewardsData> = ({ rewardsData }) => {
 				location="rewards"
 			/>
 
-			<div className="font-bold col-start-3 col-end-7 row-start-4 row-end-5 lg:col-end-4 text-3xl lg:text-4xl">
-				{rewardsData.heading.head} x{" "}
-				<div className="bg-black text-white inline">
+			<h2 className="col-start-3 col-end-7 row-start-4 row-end-5 lg:col-end-4">
+				{rewardsData.heading.head} x
+				<h2 className="bg-black text-white inline">
 					{value.a}
-				</div>
+				</h2>
 				.
-				<div className="bg-black text-white inline">
+				<h2 className="bg-black text-white inline">
 					{value.b}
-				</div>
+				</h2>
 				!
-			</div>
+			</h2>
 
-			<div className="col-start-3 col-end-7 row-start-5 row-end-5 lg:col-end-4 lg:row-end-7">
+			<div className="col-start-3 col-end-7 row-start-5 row-end-5 lg:col-end-4 lg:row-end-6">
 				<p className="mb-3">
 					{rewardsData.details.a}
 				</p>
-				<div className="mb-3">
-					{rewardsData.heading.month.a}
+				<div className="mb-3 p">
+					{rewardsData.heading.month.a}{" "}
 					<p className="font-bold inline">
 						{value.month} 30
 					</p>{" "}
@@ -174,11 +174,11 @@ const BoostRewardsPage: React.FC<RewardsData> = ({ rewardsData }) => {
 					{rewardsData.heading.month.c}{" "}
 					x{value.a}.{value.b}
 				</div>
-				<div className="mb-2">
+				<div className="mb-2 p">
 					{rewardsData.details.b}
 					<ArrowForward />
 				</div>
-				<div className="mb-2">
+				<div className="mb-2 p">
 					{rewardsData.details.c}
 					<Dots
 						space={5}
@@ -188,12 +188,12 @@ const BoostRewardsPage: React.FC<RewardsData> = ({ rewardsData }) => {
 					/>
 					{rewardsData.details.d}
 				</div>
-				<p className="">
+				<p>
 					{rewardsData.details.e}
 				</p>
 			</div>
 
-			<div className=" col-start-3 col-end-7 row-start-6 row-end-7 lg:col-start-6 lg:row-start-5 lg:row-end-7">
+			<div className=" col-start-3 col-end-7 row-start-6 row-end-7 lg:col-start-6 lg:row-start-5 lg:row-end-6">
 				<RewardProgram
 					posted={hasPosted}
 					rewardsdata={
@@ -202,11 +202,15 @@ const BoostRewardsPage: React.FC<RewardsData> = ({ rewardsData }) => {
 				/>
 			</div>
 
-			<div className=" mb-10 row-start-7 row-end-8 col-start-3 col-end-7  lg:row-start-6 lg:row-end-8 flex justify-end items-center flex-col">
-				<CountdownTimer launchDate={rewardsData.launchDate}	/>
-				<h2 className="text-md text-center font-semibold mt-2">
+			<div className=" mb-10 row-start-7 row-end-8 col-start-3 col-end-7  lg:row-start-6 lg:row-end-8 flex justify-start items-center flex-col">
+				<CountdownTimer
+					launchDate={
+						rewardsData.launchDate
+					}
+				/>
+				<p className=" text-center mt-2">
 					{rewardsData.footer}
-				</h2>
+				</p>
 			</div>
 		</Layout>
 	);

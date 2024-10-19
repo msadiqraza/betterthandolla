@@ -54,15 +54,15 @@ const PriceStabilityPage: React.FC<PriceStabilityProps> = ({
 				location="answer"
 			/>
 			<div className="col-start-3 col-end-7 row-start-3 row-end-7 text-center flex flex-col items-center justify-center">
-				<h1 className="text-5xl font-semibold">
+				<h1 className="font-semibold">
 					{data.heading}
 				</h1>
-				<p className="text-5xl font-semibold mb-8">
+				<h2 className="font-semibold mb-8">
 					{data.subheading}
-				</p>
+				</h2>
 
 				<div className="mb-8 max-w-[500px]">
-					<div className="inline">
+					<div className="p inline">
 						{data.details.a}
 							<Dots
 								space={
@@ -83,7 +83,7 @@ const PriceStabilityPage: React.FC<PriceStabilityProps> = ({
 
 				<button
 					onClick={handlePost}
-					className="bg-gradient-to-r from-pink-500 to-red-500 text-white text-2xl font-semibold px-6 py-2 rounded-lg"
+					className="p bg-gradient-to-r from-pink-500 to-red-500 text-white font-semibold px-6 py-2 rounded-lg"
 				>
 					{data.buttonText}
 				</button>

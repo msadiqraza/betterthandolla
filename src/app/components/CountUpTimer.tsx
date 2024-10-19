@@ -44,7 +44,7 @@ const CountUpTimer = ({ subheading }: CountUpTimerProps) => {
 						</div>
 					))}
 			</div>
-			<p className="mt-4 text-center">{subheading}</p>
+			<p className="mt-4 text-center text-paragraph">{subheading}</p>
 		</div>
 	);
 };

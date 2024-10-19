@@ -47,19 +47,19 @@ const WhatMakesClient = ({
 				buttonText={navbar.buttonText}
 				location="questionnare"
 			/>
-			<div className="text-4xl font-bold flex flex-row w-full flex-wrap col-start-3 col-end-7 row-start-4 row-end-5 lg:col-end-4">
+			<div className="h2 font-bold flex flex-row w-full flex-wrap col-start-3 col-end-7 row-start-4 row-end-5 lg:col-end-4">
 				<div className="w-full">
 					<div className="inline-flex flex-wrap justify-start items-center gap-3 w-full">
 						{heading.a}
 						<Dots
-							space={6}
+							space={8}
 							height={
-								14
+								23
 							}
 							weight={
-								14
+								23
 							}
-							style="inline-flex justify-center items-center mt-2"
+							style="inline-flex justify-center items-center mt-2 w-[80px]"
 							colour=""
 						/>
 						{heading.b}

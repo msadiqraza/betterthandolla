@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import React from "react";
+import { vision } from "wagmi/chains";
 
 export const metadata: Metadata = {
 	title: "BetterThanDollar",

@@ -82,11 +82,19 @@ const RewardProgram = ({ posted, rewardsdata }: RewardProgramProps) => {
 		};
 	};
 
+useEffect(() => {
+	if (err) {
+		setTimeout(() => {
+			setErr("");
+		}, 6000);
+	}
+}, [err]);
+
 	const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
 		e.preventDefault();
 
 		if (posted) handleVerify();
-		else console.log("User has not posted");
+		else setErr("User has not posted");
 	};
 
 	const handleVerify = async (): Promise<void> => {
@@ -239,113 +247,163 @@ const RewardProgram = ({ posted, rewardsdata }: RewardProgramProps) => {
 	};
 
 	return (
-		<div className="bg-gradient-to-tr from-[rgb(92,33,65)] to-[rgb(50,42,57)] text-white text-md rounded-lg p-4 mx-auto">
-			<h2 className="text-md font-bold mb-4">
-				{rewardsdata.heading}
-			</h2>
+		<div className=" bg-gradient-to-r from-[rgb(104,65,121)] to-[rgb(65,54,98)] text-white rounded-[30px] w-full p-1">
+			<div className="p-4 mx-auto rounded-[30px] h-full w-full bg-gradient-to-tr from-[rgb(92,33,65)]  to-[rgb(50,42,57)]">
+				<p className="mb-4">
+					{rewardsdata.heading}
+				</p>
 
-			{/* Follow */}
-			<div className="flex items-center space-x-2 mb-2">
-				<span className="w-7 h-7 flex items-center justify-center bg-white text-purple-900 rounded-lg font-bold">
-					1
-				</span>
-				<span className="text-md">
-					{rewardsdata.follow.text}
-				</span>
-				<Link
-					href={`https://x.com/${rewardsdata.follow.clientTwitterAcct}`}
-					target="_blank"
-					rel="noopener noreferrer"
-					onClick={handleFollow}
-					className="inline-block bg-gradient-to-r from-red-500 via-pink-500 to-red-500 hover:bg-pink-700 text-white px-4 py-2 rounded-lg text-sm transition duration-300 ease-in-out hover:shadow-lg"
-				>
-					{rewardsdata.follow.button}
-				</Link>
-			</div>
-
-			{/* Post */}
-			<div className="flex items-center space-x-2 mb-3">
-				<span className="w-7 h-7 flex items-center justify-center bg-white text-purple-900 rounded-lg font-bold">
-					2
-				</span>
-				<span className="text-md">
-					{rewardsdata.post.text}
-				</span>
-				<button
-					onClick={() => {
-						if (
-							!posted &&
-							hasFollowed
-						)
-							handlePost();
-					}}
-					className="inline-block bg-gradient-to-r from-red-500 via-pink-500 to-red-500 hover:bg-pink-700 text-white px-4 py-2 rounded-lg text-sm transition duration-300 ease-in-out hover:shadow-lg"
-				>
-					{rewardsdata.post.button}
-				</button>
-			</div>
-
-			{/* Tweet Link Input */}
-			<form
-				className="flex items-center space-x-2 mb-3"
-				onSubmit={handleSubmit}
-			>
-				<input
-					type="text"
-					placeholder={
-						rewardsdata.verify
-							.placeholder
-					}
-					value={url}
-					onChange={(
-						e: React.ChangeEvent<HTMLInputElement>
-					) => setUrl(e.target.value)}
-					className="flex-grow border border-gray-300 rounded px-2 py-1.5 max-w-[430px] text-black text-sm"
-				/>
-				<button
-					type="submit"
-					className="bg-gradient-to-r from-red-500 via-pink-500 to-red-500 hover:bg-pink-700 text-white px-4 py-[9px] rounded-lg text-sm"
-				>
-					{rewardsdata.verify.button}
-				</button>
-			</form>
-
-			{/* Step 3 */}
-			<div className="flex items-center space-x-2 mb-2">
-				<span className="w-8 h-8 flex items-center justify-center bg-white text-purple-900 rounded-lg font-bold">
-					3
-				</span>
-				<span>{rewardsdata.sign.text}</span>
-				<button
-					onClick={() => {
-						if (isVerified)
-							handleButtonClick();
-					}}
-					className="bg-gradient-to-r from-red-500 via-pink-500 to-red-500 hover:bg-pink-700 text-white px-4 py-2 rounded-lg text-sm"
-				>
-					{rewardsdata.sign.button}
-				</button>
-			</div>
-
-			<p className="text-sm mt-3">
-				{rewardsdata.footer}
-			</p>
-
-			{loading && (
-				<div
-					className={`absolute h-[170vh] lg:h-screen inset-0 bg-black bg-opacity-50`}
-				>
-					<Loading />
+				{/* Follow */}
+				<div className="flex items-center space-x-2 mb-2">
+					<span className="w-7 h-7 flex items-center justify-center bg-white text-black rounded-lg font-bold">
+						1
+					</span>
+					<p>
+						{
+							rewardsdata
+								.follow
+								.text
+						}
+					</p>
+					<Link
+						href={`https://x.com/${rewardsdata.follow.clientTwitterAcct}`}
+						target="_blank"
+						rel="noopener noreferrer"
+						onClick={
+							handleFollow
+						}
+						className="p inline-block bg-gradient-to-r from-red-500 via-pink-500 to-red-500 hover:bg-gray-700 text-white px-4 py-2 rounded-lg text-sm transition duration-300 ease-in-out hover:shadow-lg"
+					>
+						{
+							rewardsdata
+								.follow
+								.button
+						}
+					</Link>
 				</div>
-			)}
 
-			{err && (
-				<div className="absolute px-4 py-2 rounded-xl bottom-4 right-4 bg-red-500 text-white font-semibold">
-					<div className="sticky">
-						{err}
+				{/* Post */}
+				<div className="flex items-center space-x-2 mb-3">
+					<span className="w-7 h-7 flex items-center justify-center bg-white text-purple-900 rounded-lg font-bold">
+						2
+					</span>
+					<p>
+						{" "}
+						{
+							rewardsdata
+								.post
+								.text
+						}
+					</p>
+					<button
+						onClick={() => {
+							if (
+								!posted &&
+								hasFollowed
+							) {
+								handlePost();
+							} else if (
+								posted
+							) {
+								setErr(
+									"You have already posted. To post again start from dashboard"
+								);
+							} else {
+								setErr(
+									"You have not followed this user"
+								);
+							}
+						}}
+						className="p inline-block bg-gradient-to-r from-red-500 via-pink-500 to-red-500 hover:bg-pink-700 text-white px-4 py-2 rounded-lg text-sm transition duration-300 ease-in-out hover:shadow-lg"
+					>
+						{
+							rewardsdata
+								.post
+								.button
+						}
+					</button>
+				</div>
+
+				{/* Tweet Link Input */}
+				<form
+					className="flex items-center space-x-2 mb-3"
+					onSubmit={handleSubmit}
+				>
+					<input
+						type="text"
+						placeholder={
+							rewardsdata
+								.verify
+								.placeholder
+						}
+						value={url}
+						onChange={(
+							e: React.ChangeEvent<HTMLInputElement>
+						) =>
+							setUrl(
+								e
+									.target
+									.value
+							)
+						}
+						className="flex-grow border border-gray-300 rounded px-2 py-1.5 max-w-[430px] text-black text-sm"
+					/>
+					<button
+						type="submit"
+						className="p bg-gradient-to-r from-red-500 via-pink-500 to-red-500 hover:bg-pink-700 text-white px-4 py-[9px] rounded-lg text-sm"
+					>
+						{
+							rewardsdata
+								.verify
+								.button
+						}
+					</button>
+				</form>
+
+				{/* Step 3 */}
+				<div className="flex items-center space-x-2 mb-2">
+					<span className="w-8 h-8 flex items-center justify-center bg-white text-purple-900 rounded-lg font-bold">
+						3
+					</span>
+					<p>{rewardsdata.sign.text}</p>
+					<button
+						onClick={() => {
+							if (
+								isVerified
+							)
+								handleButtonClick();
+							else setErr("You have not completed the signin process")
+						}}
+						className="p bg-gradient-to-r from-red-500 via-pink-500 to-red-500 hover:bg-pink-700 text-white px-4 py-2 rounded-lg text-sm"
+					>
+						{
+							rewardsdata
+								.sign
+								.button
+						}
+					</button>
+				</div>
+
+				<p className=" mt-3">
+					{rewardsdata.footer}
+				</p>
+
+				{loading && (
+					<div
+						className={`absolute h-[170vh] lg:h-screen inset-0 bg-black bg-opacity-50`}
+					>
+						<Loading />
 					</div>
-				</div>
-			)}
+				)}
+
+				{err && (
+					<div className="absolute px-4 py-2 rounded-xl bottom-4 right-4 bg-red-500 text-white font-semibold">
+						<div className="sticky">
+							{err}
+						</div>
+					</div>
+				)}
+			</div>
 		</div>
 	);
 };

@@ -18,6 +18,21 @@ const config: Config = {
 					500: "#ff0000",
 				},
 			},
+			fontFamily: {
+				sans: [
+					"Helvetica",
+					"Arial",
+					"sans-serif",
+				], // For regular text
+				light: [
+					"Helvetica Light",
+					"Arial",
+					"sans-serif",
+				], // For light text
+			},
+			borderRadius: {
+				lg: "14px",
+			},
 		},
 	},
 	plugins: [],
