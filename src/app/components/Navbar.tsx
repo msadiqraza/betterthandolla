@@ -67,15 +67,12 @@ const Navbar = ({ logo, buttonText, location }: NavbarProps) => {
 							style=""
 							colour=""
 						/>
-						<Link
-							href="/"
-							className="pt-1"
-						>
-							<h3>
+						<Link href="/">
+							<p>
 								{
 									logo
 								}
-							</h3>
+							</p>
 						</Link>
 					</div>
 				) : (
@@ -91,15 +88,12 @@ const Navbar = ({ logo, buttonText, location }: NavbarProps) => {
 							style=""
 							colour=""
 						/>
-						<Link
-							href="/"
-							className="pt-1"
-						>
-							<h3>
+						<Link href="/">
+							<p>
 								{
 									logo
 								}
-							</h3>
+							</p>
 						</Link>
 					</div>
 				)}

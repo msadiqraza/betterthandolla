@@ -1,8 +1,8 @@
 "use client";
 
 // components/Layout.tsx
+import "@/styles/globals.css";
 import React from "react";
-import "@/styles/globals.css"
 
 interface LayoutProps {
 	children: React.ReactNode;

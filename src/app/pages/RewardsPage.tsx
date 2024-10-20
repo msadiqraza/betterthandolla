@@ -5,6 +5,8 @@ import CountdownTimer from "@/components/CountDownTimer";
 import Dots from "@/components/Dots";
 import Layout from "@/components/Layout";
 import Navbar from "@/components/Navbar";
+import ResponsiveDiv from "@/components/ResponsiveDiv";
+import ResponsiveHeader from "@/components/ResponsiveText";
 import RewardProgram from "@/components/RewardsProgram";
 import { ArrowForward } from "@mui/icons-material";
 import React, { useEffect, useState } from "react";
@@ -80,18 +82,11 @@ const monthNames = [
 ];
 
 const BoostRewardsPage: React.FC<RewardsData> = ({ rewardsData }) => {
-	const [hasPosted, setHasPosted] = useState(false);
 	const [value, setValue] = useState<Value>({ a: 1, b: 0, month: "" });
 	const [isClient, setIsClient] = useState(false);
 
 	useEffect(() => {
 		setIsClient(true);
-
-		const params = new URLSearchParams(window.location.search);
-		const posted = params.get("posted") || "false";
-
-		console.log("Posted", posted);
-		if (posted === "true") setHasPosted(true);
 
 		const currentMonth = new Date().getMonth(); // getMonth() returns 0 for January, 1 for February, etc.
 		const currentMonthName = monthNames[currentMonth];
@@ -143,17 +138,17 @@ const BoostRewardsPage: React.FC<RewardsData> = ({ rewardsData }) => {
 				location="rewards"
 			/>
 
-			<h2 className="col-start-3 col-end-7 row-start-4 row-end-5 lg:col-end-4">
+			<ResponsiveHeader className="col-start-3 col-end-4 row-start-4 row-end-5">
 				{rewardsData.heading.head} x
-				<h2 className="bg-black text-white inline">
+				<span className="bg-black text-white inline">
 					{value.a}
-				</h2>
+				</span>
 				.
-				<h2 className="bg-black text-white inline">
+				<span className="bg-black text-white inline">
 					{value.b}
-				</h2>
+				</span>
 				!
-			</h2>
+			</ResponsiveHeader>
 
 			<div className="col-start-3 col-end-7 row-start-5 row-end-5 lg:col-end-4 lg:row-end-6">
 				<p className="mb-3">
@@ -188,21 +183,20 @@ const BoostRewardsPage: React.FC<RewardsData> = ({ rewardsData }) => {
 					/>
 					{rewardsData.details.d}
 				</div>
-				<p>
-					{rewardsData.details.e}
-				</p>
+				<p>{rewardsData.details.e}</p>
 			</div>
 
-			<div className=" col-start-3 col-end-7 row-start-6 row-end-7 lg:col-start-6 lg:row-start-5 lg:row-end-6">
+			<ResponsiveDiv className=" col-end-7 row-start-6 col-start-6 lg:row-start-5 row-end-6">
 				<RewardProgram
-					posted={hasPosted}
 					rewardsdata={
 						rewardsData.rewardProgram
 					}
 				/>
-			</div>
+			</ResponsiveDiv>
 
-			<div className=" mb-10 row-start-7 row-end-8 col-start-3 col-end-7  lg:row-start-6 lg:row-end-8 flex justify-start items-center flex-col">
+			<div
+				className={`mb-1 col-start-3 col-end-7 row-start-6 row-end-9 flex justify-center items-center flex-col`}
+			>
 				<CountdownTimer
 					launchDate={
 						rewardsData.launchDate

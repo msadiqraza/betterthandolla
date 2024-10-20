@@ -14,7 +14,6 @@ import { useRouter } from "../../i18n/routing";
 import Loading from "./Loading";
 
 interface RewardProgramProps {
-	posted: boolean;
 	rewardsdata: {
 		heading: string;
 		follow: {
@@ -38,10 +37,8 @@ interface RewardProgramProps {
 	};
 }
 
-const RewardProgram = ({ posted, rewardsdata }: RewardProgramProps) => {
+const RewardProgram = ({ rewardsdata }: RewardProgramProps) => {
 	const [loading, setLoading] = useState(false);
-
-	const [hasFollowed, setHasFollowed] = useState(false);
 	const [url, setUrl] = useState("");
 	const [err, setErr] = useState<string>();
 	const [isVerified, setIsVerified] = useState(false);
@@ -50,9 +47,8 @@ const RewardProgram = ({ posted, rewardsdata }: RewardProgramProps) => {
 	const { address, isConnected } = useAccount(); // Get wallet connection status
 	const { openConnectModal } = useConnectModal();
 
-	const handleFollow = () => {
-		setHasFollowed(true);
-	};
+	const [connectionTriggered, setConnectionTriggered] = useState(false);
+
 
 	const handlePost = () => {
 		console.log("inside post");
@@ -69,8 +65,7 @@ const RewardProgram = ({ posted, rewardsdata }: RewardProgramProps) => {
 			setErr(
 				"The URL is not accurate.\nIt should be in the form:\nhttps://x.com/username/status/tweetId"
 			);
-			// Optionally throw an error or return defaults
-			throw new Error("Invalid URL format");
+			return {username:"", tweetId:""}
 		}
 
 		const username = match[1];
@@ -82,108 +77,104 @@ const RewardProgram = ({ posted, rewardsdata }: RewardProgramProps) => {
 		};
 	};
 
-useEffect(() => {
-	if (err) {
-		setTimeout(() => {
-			setErr("");
-		}, 6000);
-	}
-}, [err]);
+	useEffect(() => {
+		if (err) {
+			setLoading(false)
+			setTimeout(() => {
+				setErr("");
+			}, 6000);
+		}
+	}, [err]);
 
 	const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
 		e.preventDefault();
-
-		if (posted) handleVerify();
-		else setErr("User has not posted");
+		handleVerify();
 	};
 
 	const handleVerify = async (): Promise<void> => {
-		console.log("url", url);
-
-		setLoading(true);
 		let wallet: `0x${string}`;
 
-		if (address && isConnected) {
+		if (address) {
 			wallet = `0x${address.slice(2)}`;
 		} else {
 			wallet =
 				"0x0000000000000000000000000000000000000000";
 		}
 
-		console.log("wallet", wallet);
 		const { username, tweetId } =
 			extractUsernameAndTweetId(url);
 
-		console.log("username", username, "tweetId", tweetId);
+		if (username && tweetId) {
+			setLoading(true);
 
-		const userFound = await findUser(username || "", wallet);
-		console.log("this is the userFound: ", userFound);
-		// setUserFound(userFound);
+			console.log("username", username, "tweetId", tweetId);
+			const userFound = await findUser(username || "", wallet);
 
-		if (!userFound) {
-			// THAT USER IS NEW
-			try {
-				console.log("Inside userFound");
+			if (!userFound) {
+				// THAT USER IS NEW
+				try {
+					console.log("Inside userFound");
 
-				const insert = insertUser(
-					username || "",
-					wallet,
-					tweetId
-				);
-				console.log("Insert user", insert);
-
-				const checkFollow =
-					await checkTwitterFollow(
-						username
+					const insert = insertUser(
+						username || "",
+						wallet,
+						tweetId
 					);
+					console.log("Insert user", insert);
 
-				if (checkFollow === true) {
-					console.log(
-						"User is following"
-					);
-
-					const checkPost =
-						await checkTwitterPost(
-							tweetId
+					const checkFollow =
+						await checkTwitterFollow(
+							username
 						);
 
-					if (checkPost === true) {
-						setIsVerified(true);
-						setErr("");
-					} else if (
-						checkPost === false
-					) {
-						setErr(
-							"You have not posted about us on X. \nPlease post and try again."
+					if (checkFollow === true) {
+						console.log(
+							"User is following"
 						);
-					} else if (checkPost === -1) {
+
+						const checkPost =
+							await checkTwitterPost(
+								tweetId
+							);
+
+						if (checkPost === true) {
+							setIsVerified(true);
+							setErr("");
+						} else if (
+							checkPost === false
+						) {
+							setErr(
+								"You have not posted about us on X. \nPlease post and try again."
+							);
+						} else if (checkPost === -1) {
+							setErr(
+								"There was a problem while verifying post. \nTry again later "
+							);
+						}
+					} else if (checkFollow === false) {
 						setErr(
-							"There was a problem while verifying post. \nTry again later "
+							"You have not followed us on X. \nPlease follow and try again."
+						);
+					} else if (checkFollow === -1) {
+						setErr(
+							"There was a problem while verifying follow. \nTry again later "
 						);
 					}
-				} else if (checkFollow === false) {
+				} catch (error) {
 					setErr(
-						"You have not followed us on X. \nPlease follow and try again."
+						`Error during verification: ${error}`
 					);
-				} else if (checkFollow === -1) {
-					setErr(
-						"There was a problem while verifying follow. \nTry again later "
+					console.error(
+						"Error during verification:",
+						error
 					);
 				}
-			} catch (error) {
-				setErr(
-					`Error during verification: ${error}`
-				);
-				console.error(
-					"Error during verification:",
-					error
-				);
+			} else {
+				setErr("User has already redeemed their reward");
+				// setUserFound(-1); // -1 indicates user already found
 			}
-		} else {
-			setErr("User has already redeemed their reward");
-			// setUserFound(-1); // -1 indicates user already found
+			setLoading(false);
 		}
-		setLoading(false);
 	};
 
 	const { signMessage } = useSignMessage({
@@ -204,12 +195,12 @@ useEffect(() => {
 		},
 	});
 
-	const [connectionTriggered, setConnectionTriggered] = useState(false);
 
 	useEffect(() => {
 		if (connectionTriggered && isConnected) {
 			handlePostConnection(); // Call the function after successful connection
 		}
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [isConnected, connectionTriggered]);
 
 	const handlePostConnection = async () => {
@@ -255,9 +246,9 @@ useEffect(() => {
 
 				{/* Follow */}
 				<div className="flex items-center space-x-2 mb-2">
-					<span className="w-7 h-7 flex items-center justify-center bg-white text-black rounded-lg font-bold">
+					<h3 className="min-w-10 min-h-10 flex items-center justify-center bg-white text-black rounded-md">
 						1
-					</span>
+					</h3>
 					<p>
 						{
 							rewardsdata
@@ -269,9 +260,6 @@ useEffect(() => {
 						href={`https://x.com/${rewardsdata.follow.clientTwitterAcct}`}
 						target="_blank"
 						rel="noopener noreferrer"
-						onClick={
-							handleFollow
-						}
 						className="p inline-block bg-gradient-to-r from-red-500 via-pink-500 to-red-500 hover:bg-gray-700 text-white px-4 py-2 rounded-lg text-sm transition duration-300 ease-in-out hover:shadow-lg"
 					>
 						{
@@ -284,9 +272,9 @@ useEffect(() => {
 
 				{/* Post */}
 				<div className="flex items-center space-x-2 mb-3">
-					<span className="w-7 h-7 flex items-center justify-center bg-white text-purple-900 rounded-lg font-bold">
+					<h3 className="min-w-10 min-h-10 flex items-center justify-center bg-white text-black rounded-md">
 						2
-					</span>
+					</h3>
 					<p>
 						{" "}
 						{
@@ -297,22 +285,7 @@ useEffect(() => {
 					</p>
 					<button
 						onClick={() => {
-							if (
-								!posted &&
-								hasFollowed
-							) {
-								handlePost();
-							} else if (
-								posted
-							) {
-								setErr(
-									"You have already posted. To post again start from dashboard"
-								);
-							} else {
-								setErr(
-									"You have not followed this user"
-								);
-							}
+							handlePost();
 						}}
 						className="p inline-block bg-gradient-to-r from-red-500 via-pink-500 to-red-500 hover:bg-pink-700 text-white px-4 py-2 rounded-lg text-sm transition duration-300 ease-in-out hover:shadow-lg"
 					>
@@ -362,9 +335,9 @@ useEffect(() => {
 
 				{/* Step 3 */}
 				<div className="flex items-center space-x-2 mb-2">
-					<span className="w-8 h-8 flex items-center justify-center bg-white text-purple-900 rounded-lg font-bold">
+					<h3 className="min-w-10 min-h-10 flex items-center justify-center bg-white text-black rounded-md">
 						3
-					</span>
+					</h3>
 					<p>{rewardsdata.sign.text}</p>
 					<button
 						onClick={() => {
@@ -372,7 +345,10 @@ useEffect(() => {
 								isVerified
 							)
 								handleButtonClick();
-							else setErr("You have not completed the signin process")
+							else
+								setErr(
+									"You have not completed the signin process"
+								);
 						}}
 						className="p bg-gradient-to-r from-red-500 via-pink-500 to-red-500 hover:bg-pink-700 text-white px-4 py-2 rounded-lg text-sm"
 					>
@@ -388,6 +364,7 @@ useEffect(() => {
 					{rewardsdata.footer}
 				</p>
 
+				{/* fix */}
 				{loading && (
 					<div
 						className={`absolute h-[170vh] lg:h-screen inset-0 bg-black bg-opacity-50`}

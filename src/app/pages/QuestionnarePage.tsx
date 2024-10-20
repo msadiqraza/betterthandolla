@@ -49,7 +49,7 @@ const WhatMakesClient = ({
 			/>
 			<div className="h2 font-bold flex flex-row w-full flex-wrap col-start-3 col-end-7 row-start-4 row-end-5 lg:col-end-4">
 				<div className="w-full">
-					<div className="inline-flex flex-wrap justify-start items-center gap-3 w-full">
+					<div className="inline-flex flex-wrap justify-start items-center gap-x-3 w-full">
 						{heading.a}
 						<Dots
 							space={8}
