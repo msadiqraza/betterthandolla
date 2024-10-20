@@ -2,6 +2,7 @@ import { CountUpTimer } from "@/components/CountUpTimer";
 import Layout from "@/components/Layout";
 import Navbar from "@/components/Navbar";
 import { useRouter } from "../../i18n/routing";
+import ResponsiveHeader from "@/components/ResponsiveText";
 
 // Interface for the props
 interface HomeProps {
@@ -45,15 +46,24 @@ function Home({ data }: HomePageProps): JSX.Element {
 			/>
 
 			<main className="col-start-3 col-end-7 row-start-4 row-end-6 flex justify-start items-center flex-col text-center">
-				<div className="text-headline2 font-bold pb-4">
-					<h2>{data.heading.a}</h2>
-					<h2>{data.heading.b}</h2>
-					<h2>{data.heading.c}</h2>
+				{/* <ResponsiveHeader className="inline-block  font-bold w-lg max-w-xl pb-4">
+					{data.heading.a}{" "}
+					{data.heading.b}{" "}
+					{data.heading.c}
+				</ResponsiveHeader> */}
+
+				<div className="max-w-xl ">
+					<ResponsiveHeader className="inline-block font-[600] min-w-[415px] pb-4">
+						{data.heading.a}{" "}
+						{data.heading.b}{" "}
+						{data.heading.c}
+					</ResponsiveHeader>
 				</div>
-				<div className="mb-5 text-paragraph" >
-					<p>{data.subheading.a}</p>
-					<p>{data.subheading.b}</p>
-				</div>
+
+				<p className="mb-5 text-paragraph max-w-lg">
+					{data.subheading.a}{" "}
+					{data.subheading.b}
+				</p>
 				<button
 					onClick={handleRoute}
 					className="bg-gradient-to-r from-pink-500 to-red-500 text-white px-6 py-3 rounded-lg "

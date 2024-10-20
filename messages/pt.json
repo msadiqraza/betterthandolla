@@ -106,8 +106,8 @@
 	},
 
 	"answer": {
-		"version": {
-			"ESTABILIDADE DE PREÇO": {
+		"version": [
+			 {
 				"heading": "SIM",
 				"subheading": "Melhor estabilidade de preço para sua moeda nacional é uma função muito importante de uma nova super-stable.",
 				"details": {
@@ -117,7 +117,7 @@
 				"buttonText": "Postar",
 				"post": "Nova super stablecoin BetterThanDollar está a caminho!\nÉ a primeira moeda que proporciona uma estabilidade de preços internacional melhor do que qualquer moeda vinculada ao dólar USD. 🌍\nFaça como eu: Siga aqui e compartilhe o post sobre uma solução melhor do que o US$ 🔴🔴🔴 está chegando."
 			},
-			"ESTABILIDADE COMPARTILHADA": {
+		 {
 				"heading": "SIM",
 				"subheading": "É mais justo quando todos se beneficiam da melhor estabilidade.",
 				"details": {
@@ -127,7 +127,7 @@
 				"buttonText": "Postar",
 				"post": "Nova super stablecoin BetterThanDollar está chegando!\nEla é imparcial e compartilha a estabilidade de preços entre todos, independentemente da nacionalidade, sem favorecer o dólar americano sobre todos os outros. Justo para todos! ⚖️\nFaça como eu: Siga aqui e compartilhe o post sobre uma solução melhor que o US$ 🔴🔴🔴 está chegando."
 			},
-			"RESISTÊNCIA À CENSURA": {
+		 {
 				"heading": "SIM",
 				"subheading": "Ser resistente à censura é uma função cada vez mais importante de uma nova super-stable.",
 				"details": {
@@ -137,7 +137,7 @@
 				"buttonText": "Postar",
 				"post": "Nova super stablecoin resistente à censura BetterThanDollar!\nTodas as principais moedas vinculadas ao USD têm uma função embutida que pode confiscar remotamente suas moedas 🔒\nEsta nova solução não tem. A liberdade de moeda é tão importante quanto a liberdade de expressão.\nFaça como eu: Siga aqui + compartilhe o post."
 			},
-			"NEUTRALIDADE": {
+			{
 				"heading": "SIM",
 				"subheading": "Ser neutro é uma função importante de uma nova super-stable.",
 				"details": {
@@ -147,7 +147,7 @@
 				"buttonText": "Postar",
 				"post": "Nova super stablecoin BetterThanDollar!\nEla é neutra, garantindo simplesmente a melhor estabilidade de preços com base na tecnologia moderna, livre de políticas relacionadas ao dinheiro. 🤝\nFaça como eu: Siga aqui e compartilhe o post. Melhor, estabilidade de preços neutra."
 			}
-		},
+		],
 		"navbar": {
 			"logo": "BetterThanDollar",
 			"buttonText": "Conectar Carteira"

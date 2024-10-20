@@ -27,13 +27,12 @@ interface AnswerData {
 
 export default function AnswerPage() {
 	const t = useTranslations();
-	const [option, setOption] = useState<string>("");
+	const [option, setOption] = useState<number>(0);
 	const searchParams = useSearchParams();
 
 	useEffect(() => {
 		const selectedOption =
-			searchParams.get("option") ||
-			t("answer.version[1]");
+			Number(searchParams.get("option") )
 
 		setOption(selectedOption);
 	}, [searchParams, t]);
@@ -62,6 +61,16 @@ export default function AnswerPage() {
 					`answer.version.${option}.post`
 				),
 			},
+			default: {
+				heading: "YES",
+				subheading: "Better price stability to your national currency is a very important function of a new super-stable.",
+				details: {
+					a: "The new",
+					b: "is @BetterThanDollar when the price stability towards my national currency is  to that offered by the many USD-pegged tokens.",
+				},
+				buttonText: "Post",
+				post: "New super stablecoin BetterThanDollar is on the horizon!\nIt's the first coin to provide better international price stability than any USD-pegged coin. 🌍\nDo as I do: Follow here and share the post about a solution better than US$ 🔴🔴🔴 is coming.",
+			},
 		},
 		navbar: {
 			logo: t("answer.navbar.logo"),
@@ -73,7 +82,8 @@ export default function AnswerPage() {
 		<Providers>
 			<PriceStabilityPage
 				navbar={answerData.navbar}
-				data={answerData.version[option]}
+				option={option}
+				data={answerData.version[option] || answerData.version.default}
 			/>
 		</Providers>
 	);

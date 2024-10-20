@@ -5,6 +5,7 @@ import Information from "@/components/Info";
 import Layout from "@/components/Layout";
 import Navbar from "@/components/Navbar";
 import Options from "@/components/Options";
+import ResponsiveHeader from "@/components/ResponsiveText";
 
 // Interface for Information data structure
 interface Information {
@@ -47,9 +48,9 @@ const WhatMakesClient = ({
 				buttonText={navbar.buttonText}
 				location="questionnare"
 			/>
-			<div className="h2 font-bold flex flex-row w-full flex-wrap col-start-3 col-end-7 row-start-4 row-end-5 lg:col-end-4">
-				<div className="w-full">
-					<div className="inline-flex flex-wrap justify-start items-center gap-x-3 w-full">
+			<div className="h2 font-bold inline-flex flex-row w-full flex-wrap col-start-3 row-start-4 row-end-5 col-end-4">
+				<div className="w-full max-h-full">
+					<ResponsiveHeader className="inline-flex flex-wrap justify-start items-center gap-x-3 w-full">
 						{heading.a}
 						<Dots
 							space={8}
@@ -63,7 +64,7 @@ const WhatMakesClient = ({
 							colour=""
 						/>
 						{heading.b}
-					</div>
+					</ResponsiveHeader>
 				</div>
 			</div>
 

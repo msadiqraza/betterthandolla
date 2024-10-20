@@ -21,6 +21,7 @@ interface PriceStabilityData {
 
 interface PriceStabilityProps {
 	data: PriceStabilityData;
+	option: number;
 	navbar: {
 		logo: string;
 		buttonText: string;
@@ -29,6 +30,7 @@ interface PriceStabilityProps {
 
 const PriceStabilityPage: React.FC<PriceStabilityProps> = ({
 	data,
+	option,
 	navbar,
 }) => {
 	const router = useRouter();
@@ -51,32 +53,26 @@ const PriceStabilityPage: React.FC<PriceStabilityProps> = ({
 			<Navbar
 				logo={navbar.logo}
 				buttonText={navbar.buttonText}
-				location="answer"
+				location={`answer?option=${option}`}
 			/>
 			<div className="col-start-3 col-end-7 row-start-3 row-end-7 text-center flex flex-col items-center justify-center">
-				<h1 className="font-semibold">
+				<h2 className="font-semibold">
 					{data.heading}
-				</h1>
-				<h2 className="font-semibold mb-8">
-					{data.subheading}
 				</h2>
+				<span className="font-semibold mb-8 text-3xl md:h2 md:text-[55px] md:leading-[65px]">
+					{data.subheading}
+				</span>
 
 				<div className="mb-8 max-w-[500px]">
 					<div className="p inline">
 						{data.details.a}
-							<Dots
-								space={
-									10
-								}
-								height={
-									9
-								}
-								weight={
-									9
-								}
-								style="items-center justify-center"
-								colour=""
-							/>
+						<Dots
+							space={10}
+							height={9}
+							weight={9}
+							style="items-center justify-center"
+							colour=""
+						/>
 						{data.details.b}
 					</div>
 				</div>

@@ -14,6 +14,8 @@ const ResponsiveHeader: React.FC<ResponsiveHeaderProps> = ({
 	const headerRef = useRef<HTMLHeadingElement>(null);
 
 	useEffect(() => {
+		console.log("inside ResponsiveHeader");
+
 		const resizeObserver = new ResizeObserver(() =>
 			checkOverflow()
 		);
@@ -37,7 +39,20 @@ const ResponsiveHeader: React.FC<ResponsiveHeaderProps> = ({
 				element.scrollWidth >
 					element.clientWidth ||
 				element.scrollHeight >
-					element.clientHeight;
+					element.clientHeight ||
+				element.clientWidth >
+					window.innerWidth;
+
+			console.log(
+				"isOverflowing",
+				isOverflowing,
+				"scrollWidth",
+				element.scrollWidth,
+				"clientWidth",
+				element.clientWidth,
+				"innerWidth",
+				window.innerWidth
+			);
 
 			if (isOverflowing && fontSize > 20) {
 				setFontSize((prevSize) => prevSize - 1);
@@ -55,7 +70,6 @@ const ResponsiveHeader: React.FC<ResponsiveHeaderProps> = ({
 			className={className}
 			style={{
 				fontFamily: "Helvetica, Arial, sans-serif",
-				fontWeight: "normal",
 				fontSize: `${fontSize}px`,
 				lineHeight: `${fontSize + 10}px`,
 			}}

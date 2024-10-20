@@ -138,7 +138,7 @@ const BoostRewardsPage: React.FC<RewardsData> = ({ rewardsData }) => {
 				location="rewards"
 			/>
 
-			<ResponsiveHeader className="col-start-3 col-end-4 row-start-4 row-end-5">
+			<ResponsiveHeader className="col-start-3 col-end-4 row-start-4 row-end-5 font-[600]">
 				{rewardsData.heading.head} x
 				<span className="bg-black text-white inline">
 					{value.a}

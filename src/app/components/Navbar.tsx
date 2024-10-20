@@ -101,7 +101,6 @@ const Navbar = ({ logo, buttonText, location }: NavbarProps) => {
 				<div
 					className={`flex items-center space-x-1 md:space-x-4 `}
 				>
-					<div>
 						<CustomSelect
 							value={
 								width >
@@ -180,7 +179,6 @@ const Navbar = ({ logo, buttonText, location }: NavbarProps) => {
 								Russian
 							</MenuItem>
 						</CustomSelect>
-					</div>
 
 					<ConnectButton.Custom>
 						{({

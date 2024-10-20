@@ -109,8 +109,8 @@
 	},
 
 	"answer": {
-		"version": {
-			"PRICE STABILITY": {
+		"version": [
+			{
 				"heading": "YES",
 				"subheading": "Better price stability to your national currency is a very important function of a new super-stable.",
 				"details": {
@@ -120,7 +120,7 @@
 				"buttonText": "Post",
 				"post": "New super stablecoin BetterThanDollar is on the horizon!\nIt’s the first coin to provide better international price stability than any USD-pegged coin. 🌍\nDo as I do: Follow here and share the post about a solution better than US$ 🔴🔴🔴 is coming. "
 			},
-			"SHARED STABILITY": {
+			 {
 				"heading": "YES",
 				"subheading": "It is most fair when all benefit from the better stability.",
 				"details": {
@@ -130,7 +130,7 @@
 				"buttonText": "Post",
 				"post": "New super stablecoin BetterThanDollar is coming!\nIt’s unbiased and shares price stability among all, regardless of nationality, not favoring the US dollar over all others. Fair to all! ⚖️\nDo as I: Follow here and share the post about a better solution than US$  🔴🔴🔴 is coming. "
 			},
-			"CENSORSHIP RESISTANCE": {
+			 {
 				"heading": "YES",
 				"subheading": "Being censcorship-resistance is an increasingly important function of a new super-stable.",
 				"details": {
@@ -140,7 +140,7 @@
 				"buttonText": "Post",
 				"post": "New censorship-resistant super stablecoin BetterThanDollar!\nAll major USD-pegged coins have a built-in function that remotely can confiscate your coins 🔒\nThis new solution does not. Freedom of currency is as important as freedom of speech.\nDo as I do: Follow here + share the post."
 			},
-			"NEUTRAL": {
+			 {
 				"heading": "YES",
 				"subheading": "To be neutral is an important function of a new super-stable.",
 				"details": {
@@ -150,7 +150,7 @@
 				"buttonText": "Post",
 				"post": "New super stablecoin BetterThanDollar!\nIt’s neutral, simply ensuring the best price stability based on modern technology, free from money-related politics. 🤝\nDo as I do: Follow here and share the post. Better, neutral price stability."
 			}
-		},
+		],
 
 		"navbar": {
 			"logo": "BetterThanDollar",
