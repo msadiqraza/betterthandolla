@@ -109,6 +109,153 @@ const Navbar = ({ logo, buttonText, location, onTextChange }: NavbarProps) => {
 				<div
 					className={`flex items-center space-x-1 md:space-x-4 `}
 				>
+					{/* <Select
+						value={
+							width >
+							550
+								? localActive
+								: undefined
+						}
+						onChange={
+							onSelectChange
+						}
+						open={isOpen}
+						onClose={() =>
+							setIsOpen(
+								false
+							)
+						}
+						onOpen={handleOpen}
+						// onClick={onTextChange}
+						IconComponent={
+							LanguageIcon
+						} // Use LanguageIcon from MUI
+						input={
+							<InputBase />
+						}
+						MenuProps={{
+							PaperProps: {
+								style: {
+									backgroundColor:
+										"#e0f7fa", // Light blue background for the dropdown
+									borderRadius: "12px", // Rounded corners
+									padding: "10px",
+								},
+							},
+						}}
+						sx={{
+							"& .MuiSelect-select":
+								{
+									padding: "10px", // Adjust padding for the selected item
+									color: "black",
+								},
+							"& .MuiSvgIcon-root":
+								{
+									color: "red", // Change the color of the Language icon if needed
+								},
+							"& .MuiPaper-root":
+								{
+									borderRadius: "12px", // Rounded corners for the dropdown box
+								},
+						}}
+					>
+						<MenuItem
+							value="en"
+							style={{
+								color:
+									localActive ===
+									"en"
+										? "red"
+										: "inherit",
+								backgroundColor:
+									localActive ===
+									"en"
+										? "#ffffff"
+										: "transparent",
+								borderRadius: "8px",
+								margin: "8px 0",
+							}}
+						>
+							English
+						</MenuItem>
+						<MenuItem
+							value="pt"
+							style={{
+								color:
+									localActive ===
+									"pt"
+										? "red"
+										: "inherit",
+								backgroundColor:
+									localActive ===
+									"pt"
+										? "#ffffff"
+										: "transparent",
+								borderRadius: "8px",
+								margin: "8px 0",
+							}}
+						>
+							Portuguese
+						</MenuItem>
+						<MenuItem
+							value="zh"
+							style={{
+								color:
+									localActive ===
+									"zh"
+										? "red"
+										: "inherit",
+								backgroundColor:
+									localActive ===
+									"zh"
+										? "#ffffff"
+										: "transparent",
+								borderRadius: "8px",
+								margin: "8px 0",
+							}}
+						>
+							Mandarin
+						</MenuItem>
+						<MenuItem
+							value="hi"
+							style={{
+								color:
+									localActive ===
+									"hi"
+										? "red"
+										: "inherit",
+								backgroundColor:
+									localActive ===
+									"hi"
+										? "#ffffff"
+										: "transparent",
+								borderRadius: "8px",
+								margin: "8px 0",
+							}}
+						>
+							Hindi
+						</MenuItem>
+						<MenuItem
+							value="ru"
+							style={{
+								color:
+									localActive ===
+									"ru"
+										? "red"
+										: "inherit",
+								backgroundColor:
+									localActive ===
+									"ru"
+										? "#ffffff"
+										: "transparent",
+								borderRadius: "8px",
+								margin: "8px 0",
+							}}
+						>
+							Russian
+						</MenuItem>
+					</Select> */}
+
 					<CustomSelect
 						value={
 							width >

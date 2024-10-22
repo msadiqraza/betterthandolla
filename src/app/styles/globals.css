@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: 'Helvetica', 'Arial', sans-serif !important;
+}
+
 h1 {
     font-family: Helvetica, Arial, sans-serif;
     font-weight: normal;
@@ -65,9 +71,24 @@ ul {
 }
 
 .css-11brhm3-MuiSelect-select-MuiInputBase-input.css-11brhm3-MuiSelect-select-MuiInputBase-input.css-11brhm3-MuiSelect-select-MuiInputBase-input {
-    padding-right: 44px;
+    padding-right: 47px;
 }
 
 .css-11brhm3-MuiSelect-select-MuiInputBase-input {
 padding: 4px 0 4px;
+}
+
+.css-1h4bzp1-MuiButtonBase-root-MuiMenuItem-root {
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+    justify-content: end !important;
+    align-items: end !important;
+}
+
+.css-1xomo8h-MuiPaper-root-MuiPopover-paper-MuiMenu-paper {
+    border-radius: 14px !important;
+}
+
+.css-1h4bzp1-MuiButtonBase-root-MuiMenuItem-root.Mui-selected {
+    background-color: none !important;
 }
