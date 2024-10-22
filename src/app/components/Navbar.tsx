@@ -15,7 +15,7 @@ interface NavbarProps {
 	logo: string;
 	buttonText: string;
 	location: string;
-	onTextChange: () => void;
+	onTextChange?: () => void;
 }
 
 const Navbar = ({ logo, buttonText, location, onTextChange }: NavbarProps) => {
@@ -26,7 +26,7 @@ const Navbar = ({ logo, buttonText, location, onTextChange }: NavbarProps) => {
 	 const [isOpen, setIsOpen] = useState(false);
 
 		const handleOpen = () => {
-			onTextChange();
+			onTextChange?.();
 			setIsOpen(true);
 		};
 
