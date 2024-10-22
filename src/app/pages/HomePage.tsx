@@ -65,7 +65,7 @@ function Home({ data }: HomePageProps): JSX.Element {
 
 			<main className="col-start-3 col-end-7 row-start-4 row-end-6 flex justify-start items-center flex-col text-center">
 				<div className="max-w-xl ">
-					<ResponsiveHeader className="inline-block font-[600] min-w-[415px] pb-4">
+					<ResponsiveHeader className="inline-block min-w-[415px] pb-4">
 						{data.heading.a}{" "}
 						{data.heading.b}{" "}
 						{data.heading.c}

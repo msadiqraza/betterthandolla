@@ -64,7 +64,10 @@ ul {
         transform: rotate(0deg) !important;
 }
 
-.css-wc2xfy .MuiSelect-icon {
-    color: red;
-    padding-left: 0px !important;
+.css-11brhm3-MuiSelect-select-MuiInputBase-input.css-11brhm3-MuiSelect-select-MuiInputBase-input.css-11brhm3-MuiSelect-select-MuiInputBase-input {
+    padding-right: 44px;
+}
+
+.css-11brhm3-MuiSelect-select-MuiInputBase-input {
+padding: 4px 0 4px;
 }

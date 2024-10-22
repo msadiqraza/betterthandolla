@@ -126,10 +126,9 @@ const Navbar = ({ logo, buttonText, location, onTextChange }: NavbarProps) => {
 							)
 						}
 						onOpen={handleOpen}
-						// onClick={onTextChange}
 						IconComponent={
 							LanguageIcon
-						} // Use LanguageIcon from MUI
+						}
 						input={
 							<InputBase />
 						}
