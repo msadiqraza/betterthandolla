@@ -63,11 +63,11 @@ ul {
     line-height: 24px;
 }
 
-.css-r4d5p-MuiSvgIcon-root-MuiSelect-icon{
+.css-r4d5p-MuiSvgIcon-root-MuiSelect-icon {
     -webkit-transform: rotate(0deg) !important;
-        -moz-transform: rotate(0deg) !important;
-        -ms-transform: rotate(0deg) !important;
-        transform: rotate(0deg) !important;
+    -moz-transform: rotate(0deg) !important;
+    -ms-transform: rotate(0deg) !important;
+    transform: rotate(0deg) !important;
 }
 
 .css-11brhm3-MuiSelect-select-MuiInputBase-input.css-11brhm3-MuiSelect-select-MuiInputBase-input.css-11brhm3-MuiSelect-select-MuiInputBase-input {
@@ -75,7 +75,7 @@ ul {
 }
 
 .css-11brhm3-MuiSelect-select-MuiInputBase-input {
-padding: 4px 0 4px;
+    padding: 4px 0 4px;
 }
 
 .css-1h4bzp1-MuiButtonBase-root-MuiMenuItem-root {
@@ -90,5 +90,5 @@ padding: 4px 0 4px;
 }
 
 .css-1h4bzp1-MuiButtonBase-root-MuiMenuItem-root.Mui-selected {
-    background-color: none !important;
+    background-color: white !important;
 }
