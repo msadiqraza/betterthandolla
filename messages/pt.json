@@ -11,12 +11,15 @@
 			"c": "está chegando"
 		},
 		"subheading": {
-			"a": "Desbloqueie a próxima evolução da estabilidade de preços em DeFi",
-			"b": "melhor que o dólar, resistente à censura e com recompensas"
+			"a": "Desbloqueie a próxima evolução da estabilidade de preços no DeFi, melhor que o dólar, resistente à censura e com recompensas",
+			"b": "Desbloqueie a próxima evolução do DeFi, poupança descentralizada, não custodial e recompensas"
 		},
 		"buttonText": "Vamos lá!",
 		"countUpTimer": {
-			"subheading": "Pessoas avançando para a próxima geração de preços"
+			"subheading": {
+				"a": "Pessoas avançando para preços de próxima geração",
+				"b": "Pessoas se destacando com EFICIÊNCIA"
+			}
 		},
 		"navbar": {
 			"logo": "BetterThanDollar",

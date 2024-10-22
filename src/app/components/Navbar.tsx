@@ -15,12 +15,20 @@ interface NavbarProps {
 	logo: string;
 	buttonText: string;
 	location: string;
+	onTextChange: () => void;
 }
 
-const Navbar = ({ logo, buttonText, location }: NavbarProps) => {
+const Navbar = ({ logo, buttonText, location, onTextChange }: NavbarProps) => {
 	const router = useRouter();
 	const localActive = useLocale();
 	const [width, setWidth] = useState(0);
+
+	 const [isOpen, setIsOpen] = useState(false);
+
+		const handleOpen = () => {
+			onTextChange();
+			setIsOpen(true);
+		};
 
 	const paddingValue = width < 550 ? "10px 14px" : "10px 20px";
 
@@ -101,84 +109,92 @@ const Navbar = ({ logo, buttonText, location }: NavbarProps) => {
 				<div
 					className={`flex items-center space-x-1 md:space-x-4 `}
 				>
-						<CustomSelect
-							value={
-								width >
-								550
-									? localActive
-									: undefined
-							}
-							onChange={
-								onSelectChange
-							}
-							IconComponent={
-								LanguageIcon
-							} // Use LanguageIcon from MUI
-							input={
-								<InputBase />
-							}
+					<CustomSelect
+						value={
+							width >
+							550
+								? localActive
+								: undefined
+						}
+						onChange={
+							onSelectChange
+						}
+						open={isOpen}
+						onClose={() =>
+							setIsOpen(
+								false
+							)
+						}
+						onOpen={handleOpen}
+						// onClick={onTextChange}
+						IconComponent={
+							LanguageIcon
+						} // Use LanguageIcon from MUI
+						input={
+							<InputBase />
+						}
+					>
+						<MenuItem
+							value="en"
+							style={{
+								color:
+									localActive ===
+									"en"
+										? "red"
+										: "inherit",
+							}}
 						>
-							<MenuItem
-								value="en"
-								style={{
-									color:
-										localActive ===
-										"en"
-											? "red"
-											: "inherit",
-								}}
-							>
-								English
-							</MenuItem>
-							<MenuItem
-								value="pt"
-								style={{
-									color:
-										localActive ===
-										"pt"
-											? "red"
-											: "inherit",
-								}}
-							>
-								Portuguese
-							</MenuItem>
-							<MenuItem
-								value="zh"
-								style={{
-									color:
-										localActive ===
-										"zh"
-											? "red"
-											: "inherit",
-								}}
-							>
-								Mandarin
-							</MenuItem>
-							<MenuItem
-								value="hi"
-								style={{
-									color:
-										localActive ===
-										"hi"
-											? "red"
-											: "inherit",
-								}}
-							>
-								Hindi
-							</MenuItem>
-							<MenuItem
-								value="ru"
-								style={{
-									color:
-										localActive ===
-										"ru"
-											? "red"
-											: "inherit",
-								}}
-							>
-								Russian
-							</MenuItem>
-						</CustomSelect>
+							English
+						</MenuItem>
+						<MenuItem
+							value="pt"
+							style={{
+								color:
+									localActive ===
+									"pt"
+										? "red"
+										: "inherit",
+							}}
+						>
+							Portuguese
+						</MenuItem>
+						<MenuItem
+							value="zh"
+							style={{
+								color:
+									localActive ===
+									"zh"
+										? "red"
+										: "inherit",
+							}}
+						>
+							Mandarin
+						</MenuItem>
+						<MenuItem
+							value="hi"
+							style={{
+								color:
+									localActive ===
+									"hi"
+										? "red"
+										: "inherit",
+							}}
+						>
+							Hindi
+						</MenuItem>
+						<MenuItem
+							value="ru"
+							style={{
+								color:
+									localActive ===
+									"ru"
+										? "red"
+										: "inherit",
+							}}
+						>
+							Russian
+						</MenuItem>
+					</CustomSelect>
 
 					<ConnectButton.Custom>
 						{({

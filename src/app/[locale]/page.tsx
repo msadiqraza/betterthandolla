@@ -16,7 +16,10 @@ interface HomeData {
 	};
 	buttonText: string;
 	countUpTimer: {
-		subheading: string;
+		subheading: {
+			a: string;
+			b: string;
+		};
 	};
 	navbar: {
 		logo: string;
@@ -38,9 +41,14 @@ export default function HomePage(): JSX.Element {
 			},
 			buttonText: t("home.buttonText"),
 			countUpTimer: {
-				subheading: t(
-					"home.countUpTimer.subheading"
-				),
+				subheading: {
+					a:t(
+					"home.countUpTimer.subheading.a"
+					),
+					b:t(
+					"home.countUpTimer.subheading.b"
+					),
+				}
 			},
 			navbar: {
 				logo: t("home.navbar.logo"),

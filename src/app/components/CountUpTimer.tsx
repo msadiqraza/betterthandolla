@@ -28,7 +28,7 @@ const CountUpTimer = ({ subheading }: CountUpTimerProps) => {
 
 	return (
 		<div>
-			<div className="flex justify-center space-x-2 text-4xl font-bold">
+			<div className="flex justify-center space-x-0.5 text-4xl font-bold">
 				{count
 					.toString()
 					.padStart(5, "0")
@@ -38,7 +38,7 @@ const CountUpTimer = ({ subheading }: CountUpTimerProps) => {
 							key={
 								index
 							}
-							className="bg-black text-white p-2 rounded"
+							className="bg-black text-white p-2"
 						>
 							{digit}
 						</div>

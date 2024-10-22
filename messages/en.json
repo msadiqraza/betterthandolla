@@ -15,12 +15,15 @@
 			"c": "is coming"
 		},
 		"subheading": {
-			"a": "Unlock the next evolution of price stability in DeFi",
-			"b": "betten than dollar, censorship-resistant and rewards"
+			"a": "Unlock the next evolution of price stability in DeFi betten than dollar, censorship-resistant and rewards",
+			"b": "Unlock the next evolution of DeFi, decentralized, non-custodial savings and rewards"
 		},
 		"buttonText": "Let's go!",
 		"countUpTimer": {
-			"subheading": "People moving forward to next-gen price"
+			"subheading": {
+				"a": "People moving forward to next-gen price",
+				"b": "People breaking away with EFFICIENCY"
+			}
 		},
 		"navbar": {
 			"logo": "BetterThanDollar",
@@ -120,7 +123,7 @@
 				"buttonText": "Post",
 				"post": "New super stablecoin BetterThanDollar is on the horizon!\nIt’s the first coin to provide better international price stability than any USD-pegged coin. 🌍\nDo as I do: Follow here and share the post about a solution better than US$ 🔴🔴🔴 is coming. "
 			},
-			 {
+			{
 				"heading": "YES",
 				"subheading": "It is most fair when all benefit from the better stability.",
 				"details": {
@@ -130,7 +133,7 @@
 				"buttonText": "Post",
 				"post": "New super stablecoin BetterThanDollar is coming!\nIt’s unbiased and shares price stability among all, regardless of nationality, not favoring the US dollar over all others. Fair to all! ⚖️\nDo as I: Follow here and share the post about a better solution than US$  🔴🔴🔴 is coming. "
 			},
-			 {
+			{
 				"heading": "YES",
 				"subheading": "Being censcorship-resistance is an increasingly important function of a new super-stable.",
 				"details": {
@@ -140,7 +143,7 @@
 				"buttonText": "Post",
 				"post": "New censorship-resistant super stablecoin BetterThanDollar!\nAll major USD-pegged coins have a built-in function that remotely can confiscate your coins 🔒\nThis new solution does not. Freedom of currency is as important as freedom of speech.\nDo as I do: Follow here + share the post."
 			},
-			 {
+			{
 				"heading": "YES",
 				"subheading": "To be neutral is an important function of a new super-stable.",
 				"details": {

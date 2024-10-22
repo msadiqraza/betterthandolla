@@ -11,12 +11,15 @@
 			"c": "即将到来"
 		},
 		"subheading": {
-			"a": "解锁 DeFi 中价格稳定性的下一次进化",
-			"b": "比美元更好，抗审查并且有奖励"
+			"a": "解锁DeFi中价格稳定的新进化，比美元更优，抗审查且提供奖励",
+			"b": "解锁DeFi的新进化，去中心化，非托管储蓄和奖励"
 		},
 		"buttonText": "开始吧!",
 		"countUpTimer": {
-			"subheading": "人们向下一代价格迈进"
+			"subheading":  {
+				"a": "人们正在迈向下一代价格",
+				"b": "人们凭借效率突破前行"
+			}
 		},
 		"navbar": {
 			"logo": "BetterThanDollar",
