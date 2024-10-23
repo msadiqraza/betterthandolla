@@ -23,12 +23,12 @@ const Navbar = ({ logo, buttonText, location, onTextChange }: NavbarProps) => {
 	const localActive = useLocale();
 	const [width, setWidth] = useState(0);
 
-	 const [isOpen, setIsOpen] = useState(false);
+	const [isOpen, setIsOpen] = useState(false);
 
-		const handleOpen = () => {
-			onTextChange?.();
-			setIsOpen(true);
-		};
+	const handleOpen = () => {
+		onTextChange?.();
+		setIsOpen(true);
+	};
 
 	const paddingValue = width < 550 ? "10px 14px" : "10px 20px";
 
@@ -48,6 +48,16 @@ const Navbar = ({ logo, buttonText, location, onTextChange }: NavbarProps) => {
 			border: "none", // Remove focused border (if applicable)
 		},
 	}));
+
+	const customMenuProps = {
+		PaperProps: {
+			style: {
+				backgroundColor:
+					"rgba(255, 255, 255, 0.5)",
+				borderRadius: "14px",
+			},
+		},
+	};
 
 	const onSelectChange = (event: SelectChangeEvent<unknown>) => {
 		const nextLocale = event.target.value;
@@ -273,6 +283,9 @@ const Navbar = ({ logo, buttonText, location, onTextChange }: NavbarProps) => {
 							)
 						}
 						onOpen={handleOpen}
+						MenuProps={
+							customMenuProps
+						}
 						IconComponent={
 							LanguageIcon
 						}

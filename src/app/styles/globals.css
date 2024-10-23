@@ -103,7 +103,12 @@ padding-right: 47px !important;
     justify-content: end !important;
     align-items: end !important;
 }
+
 .css-1xomo8h-MuiPaper-root-MuiPopover-paper-MuiMenu-paper {
+    border-radius: 14px !important;
+}
+
+.css-81kwad {
     border-radius: 14px !important;
 }
 
