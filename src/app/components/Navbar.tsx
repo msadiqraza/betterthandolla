@@ -53,7 +53,7 @@ const Navbar = ({ logo, buttonText, location, onTextChange }: NavbarProps) => {
 		PaperProps: {
 			style: {
 				backgroundColor:
-					"rgba(255, 255, 255, 0.5)",
+					"rgba(255, 255, 255, 0.8)",
 				borderRadius: "14px",
 			},
 		},
