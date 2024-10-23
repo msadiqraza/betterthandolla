@@ -2,6 +2,7 @@
 
 // components/Layout.tsx
 import "@/styles/globals.css";
+import "@/styles/styles.css"
 import React from "react";
 
 interface LayoutProps {

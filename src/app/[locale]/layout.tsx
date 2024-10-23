@@ -1,5 +1,6 @@
 import { Providers } from "@/Providers";
 import "@/styles/globals.css";
+import "@/styles/styles.css"
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
